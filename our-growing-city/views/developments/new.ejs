@@ -1,0 +1,28 @@
+<%- include('./partials/header') %>
+
+<h1>Submit New Development Application:</h1>
+<form action="/developmentapplication" method="POST">
+  <label>Street Name: <input type="text" name="streetName" /> </label><br />
+  <label>Street Number: <input type="number" name="streetNumber" /> </label
+  ><br />
+  <label
+    >Development Type:
+    <select name="developmentType">
+      <option value="High-Rise Building">High-Rise Building</option>
+      <option value="Mid-Rise Building">Mid-Rise Building</option>
+      <option value="Low-Rise Buidling">Low-Rise Building</option>
+      <option value="Townhouses">Townhouses</option>
+    </select>
+  </label>
+  <br />
+  <label>Height (storeys & meters): <input name="height" type="text" /> </label
+  ><br />
+  <label>Status: <input name="status" type="text" /> </label><br />
+  <label>
+    Schedule:
+    <input type="date" name="scheduleSchema" /> </label
+  ><br />
+  <label>Reviews: <input type="text" name="reviewSchema" /> </label><br />
+</form>
+
+<%- include('./partials/footer') %>

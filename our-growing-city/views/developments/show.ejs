@@ -1,0 +1,91 @@
+<%- include('./partials/header') %>
+
+<div class="detail-container">
+  <div>
+    <h3>Street Name:</h3>
+    <span><%= developmentapplication.streetName %></span>
+  </div>
+  <div>
+    <h3>Street Number:</h3>
+    <span><%= developmentapplication.streetNum %></span>
+  </div>
+  <div>
+    <h3>Development Type:</h3>
+    <span><%= developmentapplication.type %></span>
+  </div>
+  <div>
+    <h3>Height:</h3>
+    <span><%= developmentapplication.height %></span>
+  </div>
+  <div>
+    <h3>Status:</h3>
+    <span><%= developmentapplication.status %></span>
+  </div>
+  <div>
+    <h3>Schedule:</h3>
+    <span><%= developmentapplication.[scheduleSchema] %></span>
+  </div>
+  <div>
+    <section class="writtenreviews">
+      <% if (review.length) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>User Avatar</th>
+            <th>Content</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% review.forEach(function(r) { %>
+          <tr>
+            <td><%= r.user.name %></td>
+            <td><%= r.user.avatar %></td>
+            <td><%= r.content %></td>
+            <td><%= r.createdAt.toLocaleDateString() %></td>
+            <td>
+              <% if (r.user.equals(user._id)) { %>
+              <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
+              <% } %>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } else { %>
+      <h5>No Reviews Yet</h5>
+      <% } %>
+    </section>
+  </div>
+</div>
+<br />
+
+<!--Review Form Below-->
+<div class="review-container">
+  <h3>Add Review:</h3>
+  <form
+    id="add-review"
+    method="POST"
+    action="/developmentapplications/<%= developmentapplication. _id %>/reviews"
+  >
+    <label>Review:</label>
+    <br />
+    <textarea name="content"></textarea>
+    <br />
+    <label>Rating:</label>
+    <br />
+    <span
+      ><strong>1</strong>= "I will never use this product again" -
+      <strong>5</strong>= "Can't imagine life without it"</span
+    >
+    <br />
+    <input type="submit" value="Add Review" />
+  </form>
+  <br />
+  <br />
+
+  <%- include('./partials/footer') %>
+</div>

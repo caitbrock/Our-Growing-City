@@ -1,0 +1,30 @@
+<%- include('./partials/header') %>
+
+<section class="city - container">
+    <h1> The Growing City - Toronto</h1>
+    <h3> Stay up to date with development </br>
+    happening in your neighbourhood </h3>
+    
+    <!-- map -->
+    
+    <table>
+        <thead>
+          <tr>
+            <th>Neighbourhood</th>
+            <th>Explore</th>          
+          </tr>
+        </thead>
+        <tbody>
+          <% neighbourhood.forEach(function(n) { %>
+          <tr>
+            <td><%= n.name %></td>
+            <td><a href="/neighbourhood/<%= n._id %>">Explore</a></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+
+    <h3>Select your neighbourhood</h3>
+</section>
+
+<%- include('./partials/footer') %>
