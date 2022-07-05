@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Barlow', sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "nav"
+    "body";
+  text-align: center;
 }
 
-a {
-  color: #00B7FF;
+body > nav {
+  grid-area: nav;
+  background-color: #718b9d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px 0 50px;
+}
+
+nav > a:hover {
+  color: blue;
+}
+
+nav > a.active {
+  color: white;
 }
