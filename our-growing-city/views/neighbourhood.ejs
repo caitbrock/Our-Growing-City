@@ -1,0 +1,31 @@
+<%- include('./partials/header') %>
+
+<section class="city - container">
+    <h1> The Growing City - Toronto</h1>
+    <h3> Stay up to date with development </br>
+    happening in your neighbourhood </h3>
+    
+    <!-- map -->
+    
+    <table>
+        <thead>
+          <tr>
+            <th>Neighbourhood</th>
+            <th>Explore</th>          
+          </tr>
+        </thead>
+        <tbody>
+          <% Data2.forEach(function(n) { %>
+          <tr>
+            <td><%= if (n.POSTAL === 'M4P) { } %> 
+              <% } else { %> - <% } %> </td>
+            <td><a href="/neighbourhoods/<%= n._id %>">Details</a></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+
+    <h3>Select your neighbourhood</h3>
+</section>
+
+<%- include('./partials/footer') %>

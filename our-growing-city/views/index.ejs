@@ -1,8 +1,27 @@
 <%- include('./partials/header') %>
 
     <h1>Our Growing City</h1>
-    <h3>Please login for further information on the development in your neighbourhood</h3>
-    <a href="/auth/google">Log In</a>
-    <a href="./city/index.ejs">Home</a>
+    <h5>...maybe something about a login</h5>
+    <h5>Select your neighbourhood to see development taking place in your community.</h5>
+
+    <!-- map -->
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Neighbourhood</th>
+          <th>Explore</th>          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> North Toronto </td>
+          <td><a href="/neighbourhoods/<%= n._id %>">Details</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+  <h3>Select your neighbourhood</h3>
+</section>
 
 <%- include('./partials/footer') %>

@@ -2,9 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 var neighbourhoodSchema = new Schema({
-  city: String,
-  name: String,
-  address: String,
+  STREET_NAME: String,
+  STREET_NUM: Number,
 });
 
-module.exports = mongoose.model("Neighbourhood", neighbourhoodSchema);
+module.exports = mongoose.model("Neighbourhoods", neighbourhoodSchema);

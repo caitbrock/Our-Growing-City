@@ -3,15 +3,15 @@
 <div class="detail-container">
   <div>
     <h3>Street Name:</h3>
-    <span><%= developmentapplication.streetName %></span>
+    <span><%= development.streetName %></span>
   </div>
   <div>
     <h3>Street Number:</h3>
-    <span><%= developmentapplication.streetNum %></span>
+    <span><%= development.streetNum %></span>
   </div>
   <div>
     <h3>Development Type:</h3>
-    <span><%= developmentapplication.type %></span>
+    <span><%= development.type %></span>
   </div>
   <div>
     <h3>Height:</h3>
@@ -19,11 +19,11 @@
   </div>
   <div>
     <h3>Status:</h3>
-    <span><%= developmentapplication.status %></span>
+    <span><%= development.status %></span>
   </div>
   <div>
     <h3>Schedule:</h3>
-    <span><%= developmentapplication.[scheduleSchema] %></span>
+    <span><%= development.[scheduleSchema] %></span>
   </div>
   <div>
     <section class="writtenreviews">
@@ -69,18 +69,11 @@
   <form
     id="add-review"
     method="POST"
-    action="/developmentapplications/<%= developmentapplication. _id %>/reviews"
+    action="/development/<%= development. _id %>/reviews"
   >
     <label>Review:</label>
     <br />
     <textarea name="content"></textarea>
-    <br />
-    <label>Rating:</label>
-    <br />
-    <span
-      ><strong>1</strong>= "I will never use this product again" -
-      <strong>5</strong>= "Can't imagine life without it"</span
-    >
     <br />
     <input type="submit" value="Add Review" />
   </form>

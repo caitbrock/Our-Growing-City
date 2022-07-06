@@ -10,7 +10,7 @@ function index(req, res, next) {
     .sort(sortKey)
     .exec(function (err, users) {
       if (err) return next(err);
-      res.render("/city/index", {
+      res.render("/city", {
         user,
         name: req.query.name,
         sortKey,
