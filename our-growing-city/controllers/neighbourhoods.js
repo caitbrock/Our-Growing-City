@@ -1,10 +1,12 @@
 const Neighbourhood = require("../models/neighbourhood.js");
-const Data = require("../public/assets/ACTIVE - North Toronto - Neighbourhood 173.json")
-JSON.stringify(Data);
+// const developmentData = require("../public/assets/ACTIVE - North Toronto - Neighbourhood 173.json")
+// JSON.stringify(developmentData);
+const Development = require("../models/development");
 
-function index(req, res) {
-  console.log(Data);
-  res.render(" development ", { Data });
+async function index(req, res) {
+  const developmentData = await Development.find();
+
+  res.render("neighbourhoods", { developmentData });
 }
 
 module.exports = {

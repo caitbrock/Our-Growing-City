@@ -2,11 +2,11 @@ var express = require("express");
 var router = express.Router();
 const developmentsCtrl = require("../controllers/developments");
 
-router.get("/developments", developmentsCtrl.index);
-router.post("/developments", developmentsCtrl.create);
-router.get("/developments/new", developmentsCtrl.new);
-router.get("/developments/:id", developmentsCtrl.show);
-router.get("/developments/:id/edit", developmentsCtrl.edit);
-router.put("/developments/:id", developmentsCtrl.update);
+router.get("/", developmentsCtrl.index);
+router.post("/", developmentsCtrl.create);
+router.get("/new", developmentsCtrl.new);
+router.get("/show/:id", developmentsCtrl.show);
+router.get("/:id/edit", developmentsCtrl.edit);
+router.put("/:id", developmentsCtrl.update);
 
 module.exports = router;

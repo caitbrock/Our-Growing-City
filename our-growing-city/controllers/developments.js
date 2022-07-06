@@ -1,23 +1,26 @@
+// const development = require("../models/development");
 const Development = require("../models/development");
 const Review = require("../models/review");
+// const developmentData = require("../public/assets/ACTIVE - North Toronto - Neighbourhood 173.json");
+// JSON.stringify(developmentData);
 
-function index(req, res) {
-  Development.find({}, function (err, developments) {
-    res.render("developments/index", { developments });
-  });
+async function index(req, res) {
+  const developmentData = await Development.find();
+  console.log(developmentData);
+  res.render("developments", { developmentData });
 }
 
 function create(req, res) {
-  const development = new Development(req.body);
-  development.user = req.user._id;
-  development.save(function (err) {
+  const Development = newDevelopment(req.body);
+  Development.user = req.user._id;
+  Development.save(function (err) {
     if (err) {
       console.log(err);
       return render(
-        "<h3> Must be an admin member to add a new development applciation </h3>"
+        "<h5> Must be an admin member to add a new development applciation </h5>"
       );
     }
-    res.redirect("/developments");
+    res.redirect("developments");
   });
 }
 
@@ -25,30 +28,20 @@ function newDevelopment(req, res) {
   res.render("developments/new");
 }
 
-function show(req, res) {
-  Development.findById(req.params.id)
-    .populate("user")
-    .exec(function (err, development) {
-      Review.find({ development: development._id })
-        .populate("user")
-        .exec(function (err, review) {
-          res.render("developments/show", {
-            title: "Development Application",
-            development,
-            review,
-          });
-        });
-    });
+async function show(req, res) {
+  const result = await Development.findById(req.params.id);
+  console.log("this is the result coming back from mongoose", result);
+  res.render("developments/show", { result });
 }
 
 function edit(req, res) {
-  Development.findById(req.params.id, function (err, development) {
+  Development.findById(req.params.id, function (err, Development) {
     if (err) {
       res.redirect("/developments");
     }
-    res.render("developments/edit", {
+    res.render("/edit", {
       title: "Edit Development Application",
-      development,
+      Development,
     });
   });
 }
@@ -57,14 +50,14 @@ function update(req, res) {
   Development.findByIdAndUpdate(
     req.params.id,
     req.body,
-    function (err, development) {
+    function (err, Development) {
       if (err) {
         res.render("developments/edit", {
           title: "Update Development Application",
-          development,
+          Development,
         });
       }
-      res.redirect("/developments");
+      res.redirect("developments");
     }
   );
 }

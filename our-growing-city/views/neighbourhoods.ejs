@@ -1,11 +1,12 @@
 <%- include('./partials/header') %>
 
-<section class="neighbourhood - container">
+<section class="city - container">
     <h1> Welcome to North Toronto </h1>
-    <h5> Stay up to date with development </br>
-    happening in your neighbourhood </h5>
-  
+    <h3> Stay up to date with development </br>
+    happening in your neighbourhood </h3>
+
     <!-- map -->
+    
     <table>
         <thead>
           <tr>
@@ -15,15 +16,16 @@
           </tr>
         </thead>
         <tbody>
-          <% Data.forEach(function(d) { %>
+          <% developmentData.forEach(function(d) { %>
           <tr>
-            <td><%= d.STREET_NUM %> </td>
-            <td><%= d.STREET_NAME %> </td>
-            <td><a href="/developments/<%= d._id %>">Details</a></td>
+            <td><%= d.STREET_NUM %> <%= d.STREET_NAME %> </td>
+            <td><a href="/developments/show/<%= d._id %>">Details</a></td>
           </tr>
           <% }); %>
         </tbody>
       </table>
+
+    <h3>Select your neighbourhood</h3>
 </section>
 
 <%- include('./partials/footer') %>

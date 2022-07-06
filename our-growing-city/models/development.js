@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 var developmentSchema = new Schema({
   STREET_NAME: String,
   STREET_NUM: Number,
+  STREET_TYPE: String,
   APPLICATION_TYPE: String,
   DESCRIPTION: String,
   STATUS: String,
