@@ -6,6 +6,7 @@ var developmentSchema = new Schema({
   STREET_NUM: Number,
   STREET_TYPE: String,
   APPLICATION_TYPE: String,
+  APPLICATION_NUMBER: String,
   DESCRIPTION: String,
   STATUS: String,
   schedule: { type: Schema.Types.ObjectId, ref: "Schedule" },

@@ -10,22 +10,19 @@
     <table>
         <thead>
           <tr>
-            <th>Street Number</th>
-            <th>Street Name</th>
+            <th>Address</th>
             <th>Explore</th>          
           </tr>
         </thead>
         <tbody>
           <% developmentData.forEach(function(d) { %>
           <tr>
-            <td><%= d.STREET_NUM %> <%= d.STREET_NAME %> </td>
+            <td><%= d.STREET_NUM %> <%= d.STREET_NAME %> <%= d.STREET_TYPE %></td>
             <td><a href="/developments/show/<%= d._id %>">Details</a></td>
           </tr>
           <% }); %>
         </tbody>
       </table>
-
-    <h3>Select your neighbourhood</h3>
 </section>
 
 <%- include('./partials/footer') %>

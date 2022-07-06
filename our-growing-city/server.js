@@ -42,7 +42,7 @@ app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/", usersRouter);
-app.use("/", neighbourhoodsRouter);
+app.use("/neighbourhoods", neighbourhoodsRouter);
 app.use("/developments", developmentsRouter);
 
 // catch 404 and forward to error handler

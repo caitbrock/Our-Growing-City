@@ -1,15 +1,54 @@
 <%- include('../partials/header') %>
 </br>
 </br>
+</br>
 <div class="developments-container">
-  <%= result.STREET_NUM result.STREET_NAME result.STREET_TYPE %>
+      <h5><%= result.STREET_NUM %> <%= result.STREET_NAME %> <%= result.STREET_TYPE %></h5></br>
+      <%= result.APPLICATION_TYPE %> - <%= result.STATUS %></br>
+      <%= result.APPLICATION_NUMBER %> </br></br>
+      <%= result.DESCRIPTION %></br></br></br>
+
+
+  <section class="writtenreviews">
+    <% if (review.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>User Avatar</th>
+          <th>Content</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% review.forEach(function(r) { %>
+        <tr>
+          <td><%= r.user.name %></td>
+          <td><%= r.user.avatar %></td>
+          <td><%= r.content %></td>
+          <td><%= r.createdAt.toLocaleDateString() %></td>
+          <td>
+            <% if (r.user.equals(user._id)) { %>
+            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+              <button type="submit">X</button>
+            </form>
+            <% } %>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <% } else { %>
+    <h5>No Reviews Yet</h5>
+    <% } %>
+  </section>
+
 
   <div class="review-container">
-    <h3>Add Review:</h3>
-    <form id="add-review" method="POST" action="/development/reviews">
-      <label>Review:</label>
-      <br />
+    <h5>Add Review:</h5>
+    <form id="add-review" method="POST" action="/developments/reviews">
       <textarea name="content"></textarea>
+      <br />
       <br />
       <input type="submit" value="Add Review" />
     </form>
