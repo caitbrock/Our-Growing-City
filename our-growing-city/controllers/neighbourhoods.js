@@ -3,17 +3,14 @@ const Data = require("../public/assets/ACTIVE - North Toronto - Neighbourhood 17
 JSON.stringify(Data);
 
 function index(req, res) {
-  
   console.log(Data2);
-  // Neighbourhood.find({}, function (err, developments) {
-    res.render("neighbourhood", {Data});
-    
-  // });
+  res.render("neighbourhood", {Data});
 }
+
 
 function show(req, res) {
     Neighbourhood.findById(req.params.id, function (err, neighbourhood) {
-      res.render("/index", { neighbourhood });
+      res.render("/city/neighbourhoods", { neighbourhood });
     });
   }
 

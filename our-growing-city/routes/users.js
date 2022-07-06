@@ -7,6 +7,6 @@ function isLoggedIn(req, res, next) {
   res.redirect("/auth/google");
 }
 // GET /users
-router.get("/users", isLoggedIn, usersCtrl.index);
+router.get("/", isLoggedIn, usersCtrl.index);
 
 module.exports = router;

@@ -1,7 +1,8 @@
 <%- include('./partials/header') %>
 
 <section class="city - container">
-    <h1> The Growing City - Toronto</h1>
+  <% neighbourhoodData.forEach(function(n) { %>
+    <h1> Welcome to <%= n.AREA_NAME %> </h1>
     <h3> Stay up to date with development </br>
     happening in your neighbourhood </h3>
     
@@ -16,10 +17,10 @@
           </tr>
         </thead>
         <tbody>
-          <% Data.forEach(function(n) { %>
+          <% Data.forEach(function(d) { %>
           <tr>
-            <td><%= n.STREET_NUM %> </td>
-            <td><%= n.STREET_NAME %> </td>
+            <td><%= d.STREET_NUM %> </td>
+            <td><%= d.STREET_NAME %> </td>
             <td><a href="/neighbourhoods/<%= n._id %>">Details</a></td>
           </tr>
           <% }); %>
