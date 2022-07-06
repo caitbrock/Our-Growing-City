@@ -1,25 +1,26 @@
 <%- include('./partials/header') %>
 
 <div class="detail-container">
+  <% neighbourhoodData.forEach(function(n) { %>
   <div>
     <h3>Street Name:</h3>
-    <span><%= development.streetName %></span>
+    <span><%= n.STREET_NAME %></span>
   </div>
   <div>
     <h3>Street Number:</h3>
-    <span><%= development.streetNum %></span>
+    <span><%= n.STREET_NUM %></span>
   </div>
   <div>
-    <h3>Development Type:</h3>
-    <span><%= development.type %></span>
+    <h3>Application Type:</h3>
+    <span><%= n.APPLICATION_TYPE %></span>
   </div>
   <div>
-    <h3>Height:</h3>
-    <span><%= developmentapplication.height %></span>
+    <h3>Descprition:</h3>
+    <span><%= n.DESCRIPTION %></span>
   </div>
   <div>
     <h3>Status:</h3>
-    <span><%= development.status %></span>
+    <span><%= n.STATUS %></span>
   </div>
   <div>
     <h3>Schedule:</h3>

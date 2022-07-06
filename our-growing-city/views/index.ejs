@@ -1,9 +1,9 @@
 <%- include('./partials/header') %>
 
+<section class="city - container">
     <h1>Our Growing City</h1>
-    <h5>...maybe something about a login</h5>
     <h5>Select your neighbourhood to see development taking place in your community.</h5>
-
+    <h5>Login to further engage and leave feedback on development in your area.</h5>
     <!-- map -->
     
     <table>
@@ -17,13 +17,12 @@
         <% neighbourhoodData.forEach(function(n) { %>
         <tr>
           <td><%= n.AREA_NAME %> </td>
-          <td><a href="/city/<%= n._id %>">Details</a></td>
+          <td><a href="./neighbourhoods.ejs">Details</a></td>
         </tr>
         <% }); %>
       </tbody>
     </table>
 
-  <h3>Select your neighbourhood</h3>
 </section>
 
 <%- include('./partials/footer') %>
