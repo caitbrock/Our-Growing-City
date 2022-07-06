@@ -1,15 +1,12 @@
 const Neighbourhood = require("../models/neighbourhood.js");
-const Data = require("../public/assets/Development Applications Data.json");
-const Data2 = require("..public/assets/ACTIVE - North Toronto - Neighbourhood 173.geojson")
+const Data = require("../public/assets/ACTIVE - North Toronto - Neighbourhood 173.json")
 JSON.stringify(Data);
-JSON.stringify(Data2);
-
 
 function index(req, res) {
   
   console.log(Data2);
   // Neighbourhood.find({}, function (err, developments) {
-    res.render("neighbourhood", {Data2});
+    res.render("neighbourhood", {Data});
     
   // });
 }
@@ -19,7 +16,6 @@ function show(req, res) {
       res.render("/index", { neighbourhood });
     });
   }
-
 
 
 module.exports = {

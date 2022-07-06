@@ -10,15 +10,16 @@
     <table>
         <thead>
           <tr>
-            <th>Neighbourhood</th>
+            <th>Street Number</th>
+            <th>Street Name</th>
             <th>Explore</th>          
           </tr>
         </thead>
         <tbody>
-          <% Data2.forEach(function(n) { %>
+          <% Data.forEach(function(n) { %>
           <tr>
-            <td><%= if (n.POSTAL === 'M4P) { } %> 
-              <% } else { %> - <% } %> </td>
+            <td><%= n.STREET_NUM %> </td>
+            <td><%= n.STREET_NAME %> </td>
             <td><a href="/neighbourhoods/<%= n._id %>">Details</a></td>
           </tr>
           <% }); %>

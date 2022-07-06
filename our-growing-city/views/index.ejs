@@ -14,10 +14,12 @@
         </tr>
       </thead>
       <tbody>
+        <% neighbourhoodData.forEach(function(n) { %>
         <tr>
-          <td> North Toronto </td>
-          <td><a href="/neighbourhoods/<%= n._id %>">Details</a></td>
+          <td><%= n.AREA_NAME %> </td>
+          <td><a href="/neighbourhood/<%= n._id %>">Details</a></td>
         </tr>
+        <% }); %>
       </tbody>
     </table>
 
