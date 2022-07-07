@@ -53,8 +53,9 @@
         <td><%= r.content %></td>
         <td><%= r.createdAt.toLocaleDateString() %></td>
         <td>
-          <form action="/reviews/<%= r._id %>" method="DELETE">
+          <form action="/developments/<%= result._id %>/reviews/<%= r._id %>?_method=delete" method="POST">
             <button>X</button>
+
           </form>
         </td>
       </tr>

@@ -6,7 +6,7 @@ const Review = require("../models/review");
 
 async function index(req, res) {
   const developmentData = await Development.find();
-  res.render("developments", { developmentData });
+  res.render("developments", { developmentData, user: req.user });
 }
 
 function create(req, res) {
@@ -29,7 +29,7 @@ function newDevelopment(req, res) {
 
 async function show(req, res) {
   const result = await Development.findById(req.params.id);
-  res.render("developments/show", { result });
+  res.render("developments/show", { result, user: req.user });
 }
 
 function edit(req, res) {

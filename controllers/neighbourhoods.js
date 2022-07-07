@@ -4,7 +4,7 @@ const Development = require("../models/development");
 
 async function index(req, res) {
   const developmentData = await Development.find();
-  res.render("neighbourhoods", { developmentData });
+  res.render("neighbourhoods", { developmentData, user: req.user });
   console.log("this is my data", developmentData);
 }
 
