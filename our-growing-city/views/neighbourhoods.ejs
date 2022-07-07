@@ -8,7 +8,7 @@
   </br>
 </br>
     <div id="map" style="height: 50vh;"></div>
-    <script src="javascripts/webmapneighbourhood.js"></script>
+    <script src="javascripts/webmap.js"></script>
   </br>
 </br>
     <table>
@@ -22,7 +22,7 @@
           <% developmentData.forEach(function(d) { %>
           <tr>
             <td><%= d.STREET_NUM %> <%= d.STREET_NAME %> <%= d.STREET_TYPE %></td>
-            <td><a href="/developments/<%= d._id %>">Details</a></td>
+            <td><a id="more" href="/developments/<%= d._id %>">Details</a></td>
           </tr>
           <% }); %>
         </tbody>

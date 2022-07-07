@@ -7,18 +7,20 @@
 </br>
 </br>
 </br>
+<div class="development-details">
       <h5><%= result.STREET_NUM %> <%= result.STREET_NAME %> <%= result.STREET_TYPE %></h5></br>
       <%= result.APPLICATION_TYPE %> - <%= result.STATUS %></br>
       <%= result.APPLICATION_NUMBER %> </br></br>
       <h6><%= result.DESCRIPTION %></h6></br></br></br>
-
+    </div>
 <p>Submit a Comment</p>
       <form
         id="add-review-form"
         method="POST"
         action="/developments/<%= result._id %>"
       >
-        <textarea></textarea>
+        <textarea placeholder="Enter comment here"></textarea>
+      </br></br>
         <input type="submit" value="SUBMIT" />
       </form>
     </br></br></br>

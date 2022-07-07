@@ -23,10 +23,19 @@ body > nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 50px 0 50px;
+  color: white;
 }
 
 nav > a:hover {
-  color: rgb(255, 225, 0);
+  color: rgb(251, 255, 0);
+}
+
+#more {
+  color: #424748;;
+}
+
+#more:hover{
+  color: rgb(223, 226, 23);
 }
 
 nav > a.active {
@@ -64,6 +73,27 @@ align-items: center;
   justify-content: center;
   align-items: center;
   }
+
+  .developments-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
 table {
   width: 40%;
+  border-collapse: collapse;
+  align-items: space-between;
+}
+
+tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+
+.development-details {
+  width: 60vw;
+}
+
+#add-review-form {
+  width: 70vw;
 }
