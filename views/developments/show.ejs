@@ -1,4 +1,8 @@
 <%- include('../partials/header') %>
+</br></br>
+<div id="clickable">
+  <a href="../neighbourhoods">Back to my Neighbourhood</a>
+</div>
 
 <div class="developments-container">
   <h1>North Toronto </h1>
@@ -7,7 +11,12 @@
   Application Number: <%= result.APPLICATION_NUMBER %> </br></br>
 
   <p>Date Application Submitted: <%= result.DATE_SUBMITTED %></br>
-    Date of Hearing: <%= result.HEARING_DATE %></p>
+    <% if (result.HEARING_DATE === 'null') { %>
+    Date of Hearing: No date has been set at this time
+    <% } else { %>
+    Date of Hearing: <%= result.HEARING_DATE %>
+    <% }; %>
+  </p>
 
   <div class="image" style="height: 30vh;"><i class="medium material-icons center">insert_photo</i></br>No images have been added yet</div>
   <div class="development-details">
@@ -16,6 +25,14 @@
     </p>
     <h6><%= result.DESCRIPTION %></h6></br></br></br>
   </div>
+
+  <p>Submit a Comment:</p>
+  <form id="add-review-form" method="POST" action="/developments/<%= result._id %>/reviews">
+    <textarea placeholder="Enter comment here" name="content"></textarea>
+    </br></br>
+    <input type="submit" value="SUBMIT" />
+  </form>
+  </br></br></br>
 
 
   <p>Community Feedback:
@@ -35,26 +52,19 @@
         <td><%= r.user %></td>
         <td><%= r.content %></td>
         <td><%= r.createdAt.toLocaleDateString() %></td>
+        <td>
+          <form action="/reviews/<%= r._id %>" method="DELETE">
+            <button>X</button>
+          </form>
+        </td>
       </tr>
       <% }); %>
     </tbody>
   </table>
   <%= result.review.content %>
   <% } else { %>
-  <h5>No Comments Yet</h5>
+  <p>No Comments Yet</p>
   <% }; %>
 
-
-
-  <p>Submit a Comment</p>
-  <form id="add-review-form" method="POST" action="/developments/<%= result._id %>/reviews">
-    <textarea placeholder="Enter comment here" name="content"></textarea>
-    </br></br>
-    <input type="submit" value="SUBMIT" />
-  </form>
-  </br></br></br>
-  <div id="clickable">
-    <a href="../neighbourhoods">Back to my Neighbourhood</a>
-  </div>
 
   <%- include('../partials/footer') %>
