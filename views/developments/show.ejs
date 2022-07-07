@@ -1,55 +1,60 @@
 <%- include('../partials/header') %>
+
 <div class="developments-container">
   <h1>North Toronto </h1>
   <h5><%= result.STREET_NUM %> <%= result.STREET_NAME %> <%= result.STREET_TYPE %> </h5>
   <%= result.APPLICATION_TYPE %> - <%= result.STATUS %></br>
-  <%= result.APPLICATION_NUMBER %> </br></br>
-<div class="image"style="height: 30vh;"><i class="medium material-icons center">insert_photo</i></br>No images have been added yet</div>
-<div class="development-details">
-      </br></br>
-      <p>Project Description: <p>
-      <h6><%= result.DESCRIPTION %></h6></br></br></br>
-    </div>
+  Application Number: <%= result.APPLICATION_NUMBER %> </br></br>
 
-    <!-- <% if (development.reviews.length) { %>
-      <table>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Content</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% development.reviews.forEach(function(r) { %>
-          <tr>
-            <td><%= r.content %></td>
-            <td><%= r.user %></td>
-            <td><%= r.createdAt.toLocaleDateString() %></td>
-          </tr>
-          <% }); %>
+  <p>Date Application Submitted: <%= result.DATE_SUBMITTED %></br>
+    Date of Hearing: <%= result.HEARING_DATE %></p>
 
-        </tbody>
-      </table>
-    <%= result.review.content %>
-    <% } else { %>
-<h5>No Comments Yet</h5>
-<% } -->
+  <div class="image" style="height: 30vh;"><i class="medium material-icons center">insert_photo</i></br>No images have been added yet</div>
+  <div class="development-details">
+    </br></br>
+    <p>Project Description:
+    </p>
+    <h6><%= result.DESCRIPTION %></h6></br></br></br>
+  </div>
 
 
-<p>Submit a Comment</p>
-      <form
-        id="add-review-form"
-        method="POST"
-        action="/developments/<%= result._id %>/reviews"
-      >
-        <textarea placeholder="Enter comment here" name="content"></textarea>
-      </br></br>
-        <input type="submit" value="SUBMIT" />
-      </form>
-    </br></br></br>
-      <div id="clickable">
-        <a href="../neighbourhoods">Back to my Neighbourhood</a>
-      </div>
+  <p>Community Feedback:
+  </p>
+  <% if (result.review.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Content</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% result.review.forEach(function(r) { %>
+      <tr>
+        <td><%= r.user %></td>
+        <td><%= r.content %></td>
+        <td><%= r.createdAt.toLocaleDateString() %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <%= result.review.content %>
+  <% } else { %>
+  <h5>No Comments Yet</h5>
+  <% }; %>
 
-<%- include('../partials/footer') %>
+
+
+  <p>Submit a Comment</p>
+  <form id="add-review-form" method="POST" action="/developments/<%= result._id %>/reviews">
+    <textarea placeholder="Enter comment here" name="content"></textarea>
+    </br></br>
+    <input type="submit" value="SUBMIT" />
+  </form>
+  </br></br></br>
+  <div id="clickable">
+    <a href="../neighbourhoods">Back to my Neighbourhood</a>
+  </div>
+
+  <%- include('../partials/footer') %>

@@ -4,7 +4,12 @@ const Schema = mongoose.Schema;
 const reviewSchema = new Schema({
   content: String,
   user: { type: Schema.Types.ObjectId, ref: "User" },
-});
+ },
+ {
+    timestamps: true,
+  }
+);
+
 
 var developmentSchema = new Schema({
   STREET_NAME: String,
@@ -14,7 +19,8 @@ var developmentSchema = new Schema({
   APPLICATION_NUMBER: String,
   DESCRIPTION: String,
   STATUS: String,
-  schedule: { type: Schema.Types.ObjectId, ref: "Schedule" },
+  HEARING_DATE: String,
+  DATE_SUBMITTED: String,
   review: [reviewSchema],
 });
 
