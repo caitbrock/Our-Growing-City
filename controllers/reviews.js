@@ -26,21 +26,28 @@ function index(req, res, next) {
 }
 
 function create(req, res) {
+  console.log("create reached");
   Development.findById(req.params.id, function (err, development) {
+    console.log("the dev.", development);
+    console.log(req.body);
     development.review.push(req.body)
     development.save(function (err) {
+      if (err) console.log(err)
   res.redirect(`/developments/${development._id}`);
 });
 });
 }
 
 function delReview(req, res) {
-  Development.findById(req.params.id, function (err, development) {
+  console.log(req.params)
+  Development.findById(req.params.id, function (err, review) {
     const id = req.params.id
-    console.log(req.params.id)
-    const idx = development.review.findIndex((r) => r.id === id);
+    console.log(review)
+    if (err) console.log(err)
+    const idx = review.findIndex((r) => r.id === id);
     if (idx === -1) {return false;} else {development.review.splice(idx, 1);}
     development.save(function (err) {
+      if (err) console.log(err)
   res.redirect(`${development._id}/reviews/${review._id}`);
 });
 });

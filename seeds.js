@@ -3,6 +3,7 @@ require("./config/database");
 const Neighbourhood = require("./models/neighbourhood");
 const Development = require("./models/development");
 
+
 const neighbourhoodData = require("./public/assets/Toronto Neighbourhoods.json");
 const developmentData = require("./public/assets/ACTIVE - North Toronto - Neighbourhood 173.json");
 
@@ -11,6 +12,7 @@ developmentData.forEach((e) => delete e._id);
 
 const p1 = Neighbourhood.deleteMany({});
 const p2 = Development.deleteMany({});
+
 
 Promise.all([p1, p2])
   .then((results) => {
