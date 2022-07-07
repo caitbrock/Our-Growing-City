@@ -6,7 +6,6 @@ const Review = require("../models/review");
 
 async function index(req, res) {
   const developmentData = await Development.find();
-  console.log(developmentData);
   res.render("developments", { developmentData });
 }
 
@@ -30,7 +29,6 @@ function newDevelopment(req, res) {
 
 async function show(req, res) {
   const result = await Development.findById(req.params.id);
-  console.log("this is the result coming back from mongoose", result);
   res.render("developments/show", { result });
 }
 

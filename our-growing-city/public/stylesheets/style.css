@@ -1,6 +1,7 @@
 body {
   font-family: 'Barlow', sans-serif;
   margin: 0;
+  padding: 0;
   height: 100vh;
   display: grid;
   grid-template-rows: 50px 1fr;
@@ -8,6 +9,11 @@ body {
     "nav"
     "body";
   text-align: center;
+}
+
+html, body, #map {
+	height: 100%;
+	width: 100%;
 }
 
 body > nav {
@@ -45,10 +51,13 @@ table thead th {
   border-bottom: 2px solid #424748;
   /* text-align: center; */
 }
-main {
+.city-container {
 display: flex;
+flex-direction: column;
 justify-content: center;
+align-items: center;
 }
+
 table {
-  width: 70%;
+  width: 40%;
 }

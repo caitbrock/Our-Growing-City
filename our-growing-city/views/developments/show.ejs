@@ -2,22 +2,28 @@
 </br>
 </br>
 </br>
+
+
 <div class="developments-container">
+  
+</br>
+</br>
+</br>
       <h5><%= result.STREET_NUM %> <%= result.STREET_NAME %> <%= result.STREET_TYPE %></h5></br>
       <%= result.APPLICATION_TYPE %> - <%= result.STATUS %></br>
       <%= result.APPLICATION_NUMBER %> </br></br>
-      <%= result.DESCRIPTION %></br></br></br>
+      <h6><%= result.DESCRIPTION %></h6></br></br></br>
 
 
-<h5>Submit a Comment</h5>
+<p>Submit a Comment</p>
       <form
         id="add-review-form"
         method="POST"
         action="/developments/show/:id/reviews"
       >
-        <label>Comment:</label>
-        <textarea name="content"></textarea>
-        <input type="comment" value="submit" />
+
+        <textarea></textarea>
+        <input type="submit" value="SUBMIT" />
       </form>
       
 <%- include('../partials/footer') %>
