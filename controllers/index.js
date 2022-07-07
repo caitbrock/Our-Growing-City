@@ -5,8 +5,6 @@ function index(req, res) {
     res.render("index", { neighbourhoodData, user: req.user });
   };
 
-
-
 module.exports = {
     index,
 }

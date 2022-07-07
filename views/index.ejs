@@ -1,32 +1,32 @@
 <%- include('./partials/header') %>
 
 <section class="city-container">
-    <h1>Our Growing City</h1>
-    <h5>Select your neighbourhood to see development taking place in your community.</h5>
-    <h6>Login to further engage and leave feedback on development activity in your area.</h6>
-    <!-- map -->
+  <h1>Our Growing City</h1>
+  <h5>Select your neighbourhood to see development taking place in your community.</h5>
+  <h6>Login to further engage and leave feedback on development activity in your area.</h6>
+  <!-- map -->
   </br>
-</br>
-    <div id="map" style="height: 50vh;"></div>
-    <script src="javascripts/webmap.js"></script>
   </br>
-</br>
-    <table>
-      <thead>
-        <tr>
-          <th>Neighbourhood</th>
-          <th>Explore</th>          
-        </tr>
-      </thead>
-      <tbody>
-        <% neighbourhoodData.forEach(function(n) { %>
-        <tr>
-          <td><%= n.AREA_NAME %> </td>
-          <td><a id="more" href="./neighbourhoods">Details</a></td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
+  <div id="map" style="height: 50vh;"></div>
+  <script src="javascripts/webmap.js"></script>
+  </br>
+  </br>
+  <table>
+    <thead>
+      <tr>
+        <th>Neighbourhood</th>
+        <th>Explore</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% neighbourhoodData.forEach(function(n) { %>
+      <tr>
+        <td><%= n.AREA_NAME %> </td>
+        <td><a id="more" href="./neighbourhoods">Details</a></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
 
 </section>
 

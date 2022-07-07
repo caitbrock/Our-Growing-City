@@ -1,8 +1,6 @@
-// const development = require("../models/development");
 const Development = require("../models/development");
 const Review = require("../models/review");
-// const developmentData = require("../public/assets/ACTIVE - North Toronto - Neighbourhood 173.json");
-// JSON.stringify(developmentData);
+
 
 async function index(req, res) {
   const developmentData = await Development.find();

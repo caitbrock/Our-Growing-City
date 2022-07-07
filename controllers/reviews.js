@@ -1,10 +1,34 @@
 const Review = require("../models/review"); 
 const Development = require('../models/development');
+const User = require('../models/user');
 
+function index(req, res, next) {
+  console.log(req.query);
+  // Make the query object to use with user.find based up
+  // the user has submitted the search form or now
+  let modelQuery = req.query.name
+    ? { name: new RegExp(req.query.name, "i") }
+    : {};
+  // Default to sorting by name
+  let sortKey = req.query.sort || "name";
+  User.find(modelQuery)
+    .sort(sortKey)
+    .exec(function (err, students) {
+      if (err) return next(err);
+      // Passing search values, name & sortKey, for use in the EJS
+      res.render(`/developments/${development._id}`, {
+        user,
+        name: req.query.name,
+        sortKey,
+        user: req.user,
+      });
+    });
+}
 
 function create(req, res) {
   Development.findById(req.params.id, function (err, development) {
     development.review.push(req.body);
+    console.log(req.body)
     development.save(function (err) {
   res.redirect(`/developments/${development._id}`);
 });
@@ -24,6 +48,7 @@ function delReview(req, res) {
 }
 
 module.exports = {
+  index,
   create,
   delete: delReview,
 };
