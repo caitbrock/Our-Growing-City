@@ -3,9 +3,7 @@
 </br>
 </br>
 
-
 <div class="developments-container">
-  
 </br>
 </br>
 </br>
@@ -14,16 +12,18 @@
       <%= result.APPLICATION_NUMBER %> </br></br>
       <h6><%= result.DESCRIPTION %></h6></br></br></br>
 
-
 <p>Submit a Comment</p>
       <form
         id="add-review-form"
         method="POST"
         action="/developments/show/:id/reviews"
       >
-
         <textarea></textarea>
         <input type="submit" value="SUBMIT" />
       </form>
-      
+    </br></br></br>
+      <div id="clickable">
+        
+      </div>
+
 <%- include('../partials/footer') %>
