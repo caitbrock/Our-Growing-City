@@ -31,10 +31,18 @@ nav > a:hover {
 }
 
 #more {
-  color: #424748;;
+  color: #424748;
 }
 
-#more:hover{
+#more:hover {
+  color: rgb(223, 226, 23);
+}
+
+#clickable {
+  color: #424748;
+}
+
+#clickable:hover {
   color: rgb(223, 226, 23);
 }
 
@@ -95,5 +103,14 @@ background-color: #f5f5f5;
 }
 
 #add-review-form {
-  width: 70vw;
+  width: 60vw;
+}
+
+.image {
+  width: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
