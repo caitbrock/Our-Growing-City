@@ -22,7 +22,7 @@
           <% developmentData.forEach(function(d) { %>
           <tr>
             <td><%= d.STREET_NUM %> <%= d.STREET_NAME %> <%= d.STREET_TYPE %></td>
-            <td><a href="/developments/show/<%= d._id %>">Details</a></td>
+            <td><a href="/developments/<%= d._id %>">Details</a></td>
           </tr>
           <% }); %>
         </tbody>
