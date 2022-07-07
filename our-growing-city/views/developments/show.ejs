@@ -10,13 +10,40 @@
       <p>Project Description: <p>
       <h6><%= result.DESCRIPTION %></h6></br></br></br>
     </div>
+
+    <% if (development.reviews.length) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Content</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% development.reviews.forEach(function(r) { %>
+          <tr>
+            <td><%= r.content %></td>
+            <td><%= r.user %></td>
+            <td><%= r.createdAt.toLocaleDateString() %></td>
+          </tr>
+          <% }); %>
+          
+        </tbody>
+      </table>
+    <%= result.review.content %>
+    <% } else { %>
+<h5>No Comments Yet</h5>
+<% }
+
+
 <p>Submit a Comment</p>
       <form
         id="add-review-form"
         method="POST"
-        action="/developments/<%= result._id %>"
+        action="/developments/<%= result._id %>/reviews"
       >
-        <textarea placeholder="Enter comment here"></textarea>
+        <textarea placeholder="Enter comment here" name="content"></textarea>
       </br></br>
         <input type="submit" value="SUBMIT" />
       </form>
