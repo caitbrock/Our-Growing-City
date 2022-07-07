@@ -40,14 +40,13 @@ function create(req, res) {
 
 function delReview(req, res) {
   console.log(req.params)
-  Development.findById(req.params.id, function (err, review) {
-    const id = req.params.id
-    console.log(review)
+  Development.findById(req.params.did, function (err, development) {
+    const did = req.params.did
     if (err) console.log(err)
-    const idx = review.findIndex((r) => r.id === id);
+    const idx = development.review.findIndex((r) => r.rid == req.params.rid);
+    console.log(req.params.rid)
     if (idx === -1) {return false;} else {development.review.splice(idx, 1);}
     development.save(function (err) {
-      if (err) console.log(err)
   res.redirect(`${development._id}/reviews/${review._id}`);
 });
 });

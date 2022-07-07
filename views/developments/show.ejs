@@ -2,6 +2,7 @@
 </br></br>
 <div id="clickable">
   <a href="../neighbourhoods">Back to my Neighbourhood</a>
+  <a href="./edit">Edit Application</a>
 </div>
 
 <div class="developments-container">
@@ -53,7 +54,7 @@
         <td><%= r.content %></td>
         <td><%= r.createdAt.toLocaleDateString() %></td>
         <td>
-          <form action="/developments/<%= result._id %>/reviews/<%= r._id %>?_method=delete" method="POST">
+          <form action="/developments/<%= result._id %>/reviews/<%= r._rid %>?_method=delete" method="POST">
             <button>X</button>
 
           </form>
@@ -67,5 +68,5 @@
   <p>No Comments Yet</p>
   <% }; %>
 
-
+  </br></br></br></br>
   <%- include('../partials/footer') %>
