@@ -14189,7 +14189,14 @@ let southEglintonDavisville = L.polygon([
 northToronto.bindPopup(
 	'North Toronto<br>' + 
 	'<a href = "https://www.google.com">Details</a><br>'
-)
+);
+northToronto.on('mouseover', function (e) {
+	this.openPopup();
+});
+northToronto.on('mouseout', function (e) {
+	this.closePopup();
+});
+
 
 
 },{"leaflet":1}]},{},[2]);

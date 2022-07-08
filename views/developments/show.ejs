@@ -27,13 +27,19 @@
     <h6><%= development.DESCRIPTION %></h6></br></br></br>
   </div>
 
+
   <p>Submit a Comment:</p>
-  <form id="add-review-form" method="POST" action="/developments/<%= development._id %>/reviews">
-    <textarea placeholder="Enter comment here" name="content"></textarea>
-    </br></br>
-    <button class="btn waves-effect waves-light black" type="submit" name="action">Submit
-      <i class="material-icons right">send</i>
-    </button>
+  <div class="form">
+    <form id="add-review-form" method="POST" action="/developments/<%= development._id %>/reviews">
+      <textarea placeholder="Enter comment here" name="content"></textarea>
+      <input type="file" name="uploadfile" id="img" style="display:none">
+      <label for="img" class="btn waves-effect waves-light grey" type="submit" name="action">Upload Image
+        <i class="material-icons right">add_a_photo</i></label>
+  </div>
+  </br></br>
+  <button class="btn waves-effect waves-light black" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
   </form>
   </br></br></br>
 
@@ -46,6 +52,7 @@
       <tr>
         <th>User</th>
         <th>Content</th>
+        <th>Images</th>
         <th>Date</th>
       </tr>
     </thead>
@@ -54,6 +61,7 @@
       <tr>
         <td><%= r.user.name %></td>
         <td><%= r.content %></td>
+        <td><%= r.img %></td>
         <td><%= r.createdAt.toLocaleDateString() %></td>
         <td>
           <form action="/developments/<%= development._id %>/reviews/<%= r._id %>?_method=delete" method="POST">

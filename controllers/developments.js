@@ -14,13 +14,13 @@ async function show(req, res) {
 }
 
 function edit(req, res) {
-  Development.findById(req.params.id, function (err, Development) {
+  Development.findById(req.params.id, function (err, development) {
     if (err) {
       res.redirect("/developments");
     }
-    res.render("/edit", {
+    res.render("developments/edit", {
       title: "Edit Development Application",
-      Development,
+      development,
     });
   });
 }

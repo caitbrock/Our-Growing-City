@@ -14170,6 +14170,7 @@
         }
     ).addTo(map);
 
+
     let development_one = L.circle([43.71067912946561, -79.39671749182291], {
         color: "rgb(223, 226, 23)",
         fillColor: "rgb(223, 226, 23)",
@@ -14179,7 +14180,108 @@
 
     development_one.bindPopup("<b>44 Broadway Ave</b><br>" + 
         '<a href = "https://www.google.com">Details</a>'
-    )
+    );
+    development_one.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_one.on('mouseout', function (e) {
+        this.closePopup();
+    });
+
+
+
+    let development_two = L.circle([43.708319617705826, -79.39323330820832], {
+        color: "rgb(223, 226, 23)",
+        fillColor: "rgb(223, 226, 23)",
+        fillOpacity: "1",
+        radius: 3
+    }).addTo(map);
+
+    development_two.bindPopup("<b>134 Redpath Ave</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
+    );
+    development_two.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_two.on('mouseout', function (e) {
+        this.closePopup();
+    });
+
+
+
+    let development_three = L.circle([43.70851532417782, -79.39825485427426], {
+        color: "rgb(223, 226, 23)",
+        fillColor: "rgb(223, 226, 23)",
+        fillOpacity: "1",
+        radius: 3
+    }).addTo(map);
+
+    development_three.bindPopup("<b>2329 Yonge St</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
+    );
+    development_three.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_three.on('mouseout', function (e) {
+        this.closePopup();
+    });
+
+
+
+    let development_four = L.circle([43.70796681028139, -79.39361232790601], {
+        color: "rgb(223, 226, 23)",
+        fillColor: "rgb(223, 226, 23)",
+        fillOpacity: "1",
+        radius: 3
+    }).addTo(map);
+
+    development_four.bindPopup("<b>160 Eglinton Ave</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
+    );
+
+    development_four.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_four.on('mouseout', function (e) {
+        this.closePopup();
+    });
+
+
+
+    let development_five = L.circle([43.70841914630064, -79.39328595556813], {
+        color: "rgb(223, 226, 23)",
+        fillColor: "rgb(223, 226, 23)",
+        fillOpacity: "1",
+        radius: 3
+    }).addTo(map);
+    
+    development_five.bindPopup("<b>140 Redpath Ave</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
+    );
+    development_five.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_five.on('mouseout', function (e) {
+        this.closePopup();
+    });
+
+
+    let development_six = L.circle([43.70787519243788, -79.39415153182057], {
+        color: "rgb(223, 226, 23)",
+        fillColor: "rgb(223, 226, 23)",
+        fillOpacity: "1",
+        radius: 3
+    }).addTo(map);
+
+    development_six.bindPopup("<b>150 Eglinton Ave</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
+    );
+    development_six.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_six.on('mouseout', function (e) {
+        this.closePopup();
+    });
 
     // Adds the basemap tiles to your web map
     // Additional providers are available at: https://leaflet-extras.github.io/leaflet-providers/preview/
@@ -14190,5 +14292,6 @@
         maxZoom: 20,
         ext: 'png'
     }).addTo(map);
+
     },{"leaflet":1}]},{},[2]);
     
