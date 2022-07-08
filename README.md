@@ -7,12 +7,14 @@ With the rapid growing rate of the city of Toronto, Our Growing City is an appli
 
 <img width="2539" alt="Screen Shot 2022-07-08 at 7 27 16 AM" src="https://user-images.githubusercontent.com/106548841/177984376-fa2e530a-0126-418b-8290-ba341c778655.png">
 
-The app allows a user to select a neighbourhood and view the active applications within that area. A details page for each development provides a brief summary of the project, and highlights important dates to be mindful of. An interactive element of the page allows community members to comment and leave their opinions on the projects, helping to highlight the pros and cons of the various applciations. This app provides a tangible piece of documentation for those who attend public meetings to voice concerns of community members and ensure all voices are being heard. It is important that we are part of the development taking place our communities and Our Growing City is a tool to bridge the gap between the development process and neighbourhood values. 
+The app allows a user to select a neighbourhood and view the active developments within that area. A details page for each proposed development provides a brief summary of the project, and highlights important dates to be mindful of. An interactive element of the page allows community members to comment and leave their opinions on the projects, helping to highlight the pros and cons of the various applciations. 
 
 <img width="2538" alt="Screen Shot 2022-07-08 at 7 27 34 AM" src="https://user-images.githubusercontent.com/106548841/177984430-275894cc-6231-4fe0-8c8a-17dbb8255dde.png">
 
 
 <img width="2543" alt="Screen Shot 2022-07-08 at 7 27 41 AM" src="https://user-images.githubusercontent.com/106548841/177984432-75c0099d-a484-40ea-818e-2ee4e8d6ded0.png">
+
+This app provides a tangible piece of documentation for those who attend public meetings to voice concerns of community members and ensure all voices are being heard. It is important that we are part of the development taking place our communities and Our Growing City is a tool to bridge the gap between the development process and neighbourhood values. 
 
 
 <img width="2537" alt="Screen Shot 2022-07-08 at 7 27 50 AM" src="https://user-images.githubusercontent.com/106548841/177984438-04c3b0cd-87ff-421b-8534-b6dcaa76a719.png">
