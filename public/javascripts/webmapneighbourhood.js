@@ -14283,6 +14283,119 @@
         this.closePopup();
     });
 
+
+    let development_seven = L.circle([43.71153300568447, -79.39257280171884], {
+        color: "rgb(223, 226, 23)",
+        fillColor: "rgb(223, 226, 23)",
+        fillOpacity: "1",
+        radius: 3
+    }).addTo(map);
+
+    development_seven.bindPopup("<b>124 Broadway Ave</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
+    );
+    development_seven.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_seven.on('mouseout', function (e) {
+        this.closePopup();
+    });
+
+
+
+    let development_eight = L.circle([43.708272079035936, -79.39825144500581], {
+        color: "rgb(223, 226, 23)",
+        fillColor: "rgb(223, 226, 23)",
+        fillOpacity: "1",
+        radius: 3
+    }).addTo(map);
+
+    development_eight.bindPopup("<b>2323 Yonge St</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
+    );
+    development_eight.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_eight.on('mouseout', function (e) {
+        this.closePopup();
+    });
+
+
+
+    let development_nine = L.circle([43.710701319335556, -79.39681193497034], {
+        color: "rgb(223, 226, 23)",
+        fillColor: "rgb(223, 226, 23)",
+        fillOpacity: "1",
+        radius: 3
+    }).addTo(map);
+
+    development_nine.bindPopup("<b>40 Broadway Ave</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
+    );
+    development_nine.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_nine.on('mouseout', function (e) {
+        this.closePopup();
+    });
+
+
+    let development_ten = L.circle([43.70888212022533, -79.39082045729845], {
+        color: "rgb(223, 226, 23)",
+        fillColor: "rgb(223, 226, 23)",
+        fillOpacity: "1",
+        radius: 3
+    }).addTo(map);
+
+    development_ten.bindPopup("<b>808 Mount Pleasant Rd</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
+    );
+    development_ten.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_ten.on('mouseout', function (e) {
+        this.closePopup();
+    });
+
+
+    let development_eleven = L.circle([43.707986345085985, -79.39342022033881], {
+        color: "rgb(223, 226, 23)",
+        fillColor: "rgb(223, 226, 23)",
+        fillOpacity: "1",
+        radius: 3
+    }).addTo(map);
+
+    development_eleven.bindPopup("<b>164 Eglinton Ave</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
+    );
+    development_eleven.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_eleven.on('mouseout', function (e) {
+        this.closePopup();
+    });
+
+
+    let development_twelve = L.circle([43.709104287575954, -79.39782884404812], {
+        color: "rgb(223, 226, 23)",
+        fillColor: "rgb(223, 226, 23)",
+        fillOpacity: "1",
+        radius: 3
+    }).addTo(map);
+
+    development_twelve.bindPopup("<b>2345 Yonge St</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
+    );
+    development_twelve.on('mouseover', function (e) {
+        this.openPopup();
+    });
+    development_twelve.on('mouseout', function (e) {
+        this.closePopup();
+    });
+
+
+
+
     // Adds the basemap tiles to your web map
     // Additional providers are available at: https://leaflet-extras.github.io/leaflet-providers/preview/
     var Stamen_TonerBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {

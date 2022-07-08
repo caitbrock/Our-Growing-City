@@ -10,6 +10,7 @@ async function index(req, res) {
 async function show(req, res) {
   const development = await Development.findById(req.params.id);
   const developmentId = req.params.id;
+  console.log(development);
   res.render("developments/show", { developmentId, development, user: req.user });
 }
 

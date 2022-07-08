@@ -12,11 +12,7 @@
   Application Number: <%= development.APPLICATION_NUMBER %> </br></br>
 
   <p>Date Application Submitted: <%= development.DATE_SUBMITTED %></br>
-    <% if (<%=development.HEARING_DATE %> === 'null') { %>
-    Date of Hearing: No date has been set at this time.
-    <% } else { %>
     Date of Hearing: <%= development.HEARING_DATE %>
-    <% }; %>
   </p>
 
   <div class="image" style="height: 30vh;"><i class="medium material-icons center">insert_photo</i></br>No images have been added yet</div>

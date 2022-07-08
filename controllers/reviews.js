@@ -43,7 +43,9 @@ function delReview(req, res) {
   Development.findById(req.params.id, function (err, development) {
     const id = req.params.rid
     if (err) console.log(err)
-    const idx = development.review.findIndex((r) => r.id == req.params.id);
+    console.log(development);
+    console.log(req.params);
+    const idx = development.review.findIndex((r) => r._id == req.params.rid);
     if (idx === -1) {return false;} else {development.review.splice(idx, 1);
     };
     development.save(function (err) {
