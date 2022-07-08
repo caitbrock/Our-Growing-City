@@ -40,15 +40,15 @@ function create(req, res) {
 }
 
 function delReview(req, res) {
-  Development.findById(req.params.did, function (err, development) {
-    const did = req.params.did
+  Development.findById(req.params.id, function (err, development) {
+    const id = req.params.rid
     if (err) console.log(err)
-    const idx = development.review.findIndex((r) => r.rid == req.params.rid);
+    const idx = development.review.findIndex((r) => r.id == req.params.id);
     if (idx === -1) {return false;} else {development.review.splice(idx, 1);
     };
     development.save(function (err) {
       if (err) console.log(err)
-  res.redirect(`${development._id}/reviews/${review._id}`);
+  res.redirect(`/developments/${development._id}`);
 });
 });
 }

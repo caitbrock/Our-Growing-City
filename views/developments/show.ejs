@@ -50,9 +50,8 @@
     <tbody>
       <% development.review.forEach(function(r) { %>
       <tr>
-        <td><%= r.user %></td>
+        <td><%= r.user.name %></td>
         <td><%= r.content %></td>
-        <td><%= r._id %></td>
         <td><%= r.createdAt.toLocaleDateString() %></td>
         <td>
           <form action="/developments/<%= development._id %>/reviews/<%= r._id %>?_method=delete" method="POST">
@@ -64,7 +63,6 @@
       <% }); %>
     </tbody>
   </table>
-  <%= development.review.content %>
   <% } else { %>
   <p>No Comments Yet</p>
   <% }; %>

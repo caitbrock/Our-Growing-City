@@ -1,15 +1,21 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+var userSchema = new Schema({
+  name: String,
+  email: String,
+  googleId: String,
+  admin: Boolean,
+});
+
 const reviewSchema = new Schema({
   content: String,
-  user: { type: Schema.Types.ObjectId, ref: "User" },
+  user: [userSchema],
  },
  {
     timestamps: true,
   }
 );
-
 
 var developmentSchema = new Schema({
   STREET_NAME: String,
@@ -23,7 +29,5 @@ var developmentSchema = new Schema({
   DATE_SUBMITTED: String,
   review: [reviewSchema],
 });
-
-
 
 module.exports = mongoose.model("Developments", developmentSchema);
