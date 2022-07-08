@@ -12,8 +12,8 @@
   Application Number: <%= development.APPLICATION_NUMBER %> </br></br>
 
   <p>Date Application Submitted: <%= development.DATE_SUBMITTED %></br>
-    <% if (development.HEARING_DATE === 'null') { %>
-    Date of Hearing: No date has been set at this time
+    <% if (<%=development.HEARING_DATE %> === 'null') { %>
+    Date of Hearing: No date has been set at this time.
     <% } else { %>
     Date of Hearing: <%= development.HEARING_DATE %>
     <% }; %>
