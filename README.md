@@ -14,7 +14,7 @@ The app allows a user to select a neighbourhood and view the active developments
 
 <img width="2543" alt="Screen Shot 2022-07-08 at 7 27 41 AM" src="https://user-images.githubusercontent.com/106548841/177984432-75c0099d-a484-40ea-818e-2ee4e8d6ded0.png">
 
-This app provides a tangible piece of documentation for those who attend public meetings to voice concerns of community members and ensure all voices are being heard. It is important that we are part of the development taking place our communities and Our Growing City is a tool to bridge the gap between the development process and neighbourhood values. 
+This app provides a tangible piece of documentation for those who attend public meetings to voice concerns of community members and ensure all voices are being heard. It is important that we are part of the development taking place our communities and Our Growing City is a tool to bridge the gap between the development process and neighbourhood values and concerns. 
 
 
 <img width="2537" alt="Screen Shot 2022-07-08 at 7 27 50 AM" src="https://user-images.githubusercontent.com/106548841/177984438-04c3b0cd-87ff-421b-8534-b6dcaa76a719.png">
@@ -40,8 +40,9 @@ NEXT STEPS:
 
 Moving forward it would be great to:
 
-1. Add more functionality to the development application pages (adding an image, ensuring only the admin user has access etc.).
-2. Add a like button and/or the ability to interact more with posts.
+1. Add more functionality to the development application pages (adding images and linking them to the page display, ensuring only the admin user has access etc.).
+2. Add a like button and/or the ability to interact more with community posts.
 3. Create an alert on the neighbourhood page to advise of the upcoming meetings and important dates.
 4. Add more data related to the other neighbourhoods in the City.
-5. Play more with the visuals for the maps, adding pins and polygons where appropriate.
+5. Link datasets.
+6. Play more with the visuals for the maps, adding more pins and polygons where appropriate.
