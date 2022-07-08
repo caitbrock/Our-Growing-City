@@ -1,7 +1,7 @@
 const User = require("../models/user");
+const passport = require("../config/passport");
 
 function index(req, res, next) {
-  console.log(req.query);
   let modelQuery = req.query.name
     ? { name: new RegExp(req.query.name, "i") }
     : {};

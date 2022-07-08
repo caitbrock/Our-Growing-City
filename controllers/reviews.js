@@ -1,7 +1,7 @@
-const Review = require("../models/review"); 
+
 const Development = require('../models/development');
 const User = require('../models/user');
-const Userlog = require('../config/passport');
+const passport = require("../config/passport");
 
 function index(req, res, next) {
   console.log(req.query);
