@@ -1,4 +1,5 @@
 const Development = require('../models/development');
+const User = require('../models/user');
 const passport = require("../config/passport");
 
 function index(req, res, next) {
@@ -26,7 +27,9 @@ function index(req, res, next) {
 
 function create(req, res) {
   Development.findById(req.params.id, function (err, development) {
+    req.body.user = req.user._id
     development.review.push(req.body)
+    console.log(development)
     development.save(function (err) {
       if (err) console.log(err)
   res.redirect(`/developments/${development._id}`);

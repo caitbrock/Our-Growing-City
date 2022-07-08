@@ -10,21 +10,9 @@ async function index(req, res) {
 async function show(req, res) {
   const development = await Development.findById(req.params.id);
   const developmentId = req.params.id;
-  Development.findById(req.params.id)
-  .populate('user').exec(function(err, movie){
-    User.find(
-      {_id: {$nin: development.user}},
-      function(err, users) {
-        console.log(users)
-        res.render('development/show', { title: 'Page Details', development, users})
-      }
-    )
-  })
+  console.log(development);
   res.render("developments/show", { developmentId, development, user: req.user });
 }
-
-
-
 
 
 

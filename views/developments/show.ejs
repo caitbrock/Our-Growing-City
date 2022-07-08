@@ -55,7 +55,7 @@
     <tbody>
       <% development.review.forEach(function(r) { %>
       <tr>
-        <td><%= r.user.name %></td>
+        <td><%= r._id %></td>
         <td><%= r.content %></td>
         <td>No Image Added</td>
         <td><%= r.createdAt.toLocaleDateString() %></td>

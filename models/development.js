@@ -6,7 +6,7 @@ const reviewSchema = new Schema({
   image: {
     data: Buffer,
     contentType: String}, 
-  user: [{type: Schema.Types.ObjectId, ref: 'User'}],
+  user: {type: Schema.Types.ObjectId, ref: 'User'},
  },
  {
     timestamps: true,

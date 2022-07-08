@@ -5,6 +5,7 @@ const passport = require('passport');
 
 router.get('/', userCtrl.index);
 
+
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -21,9 +22,11 @@ router.get('/oauth2callback', passport.authenticate(
 ));
 
 // OAuth logout route
-router.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
+router.get('/logout', function(req, res, next){
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
 });
 
 module.exports = router;
