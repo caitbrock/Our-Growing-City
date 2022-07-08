@@ -4,7 +4,7 @@ var L = require('leaflet');
 // Creates a leaflet map binded to an html <div> with id "map"
 // setView will set the initial map view to the location at coordinates
 // 13 represents the initial zoom level with higher values being more zoomed in
-var map2 = L.map('map').setView([43.715854, -79.390832], 19);
+var map2 = L.map('map').setView([43.715854, -79.390832], 17);
 
 // Adds the basemap tiles to your web map
 // Additional providers are available at: https://leaflet-extras.github.io/leaflet-providers/preview/
