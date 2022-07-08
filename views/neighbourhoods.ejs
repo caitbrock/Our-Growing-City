@@ -1,32 +1,32 @@
 <%- include('./partials/header') %>
 
 <section class="neighbourhood-container">
-    <h1>Welcome to North Toronto! </h1>
-    <h5>Stay up to date with development happening in your neighbourhood </h5>
-    <h6>Click on a development for further information.</h6>
-    <!-- map -->
+  <h1>Welcome to North Toronto! </h1>
+  <h5>Stay up to date with development happening in your neighbourhood </h5>
+  <h6>Click on a development for further information.</h6>
+  <!-- map -->
   </br>
-</br>
-    <div id="map" style="height: 50vh;"></div>
-    <script src="javascripts/webmap.js"></script>
   </br>
-</br>
-    <table>
-        <thead>
-          <tr>
-            <th>Address</th>
-            <th>Explore</th>          
-          </tr>
-        </thead>
-        <tbody>
-          <% developmentData.forEach(function(d) { %>
-          <tr>
-            <td><%= d.STREET_NUM %> <%= d.STREET_NAME %> <%= d.STREET_TYPE %></td>
-            <td><a id="more" href="/developments/<%= d._id %>">Details</a></td>
-          </tr>
-          <% }); %>
-        </tbody>
-      </table>
+  <div id="map" style="height: 50vh;"></div>
+  <script src="javascripts/webmapneighbourhood.js"></script>
+  </br>
+  </br>
+  <table>
+    <thead>
+      <tr>
+        <th>Address</th>
+        <th>Explore</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% developmentData.forEach(function(d) { %>
+      <tr>
+        <td><%= d.STREET_NUM %> <%= d.STREET_NAME %> <%= d.STREET_TYPE %></td>
+        <td><a id="more" href="/developments/<%= d._id %>">Details</a></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
 </section>
 
 <%- include('./partials/footer') %>

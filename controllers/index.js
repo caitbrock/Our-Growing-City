@@ -1,7 +1,7 @@
-const Neighbourhood = require("../models/neighbourhood");
+const Neighbourhood = require("../models/neighbourhood")
 
 async function index(req, res) {
-  const neighbourhoodData = await Development.find();
+  const neighbourhoodData = await Neighbourhood.find();
     res.render("index", { neighbourhoodData, user: req.user });
   };
 
