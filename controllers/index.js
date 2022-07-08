@@ -1,7 +1,7 @@
-const neighbourhoodData = require("../public/assets/Toronto Neighbourhoods.json")
-JSON.stringify(neighbourhoodData);
+const Neighbourhood = require("../models/neighbourhood");
 
-function index(req, res) {
+async function index(req, res) {
+  const neighbourhoodData = await Development.find();
     res.render("index", { neighbourhoodData, user: req.user });
   };
 
