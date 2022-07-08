@@ -1,20 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-var userSchema = new Schema({
-  name: String,
-  email: String,
-  googleId: String,
-  admin: Boolean,
-});
-
 const reviewSchema = new Schema({
   content: String,
-  img: {
+  image: {
     data: Buffer,
-    contentType: String
-}, 
-  user: [userSchema],
+    contentType: String}, 
+  user: [{type: Schema.Types.ObjectId, ref: 'User'}],
  },
  {
     timestamps: true,

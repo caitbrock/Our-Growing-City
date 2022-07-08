@@ -1,4 +1,5 @@
 const Development = require("../models/development");
+const User = require("../models/user");
 const passport = require("../config/passport");
 
 async function index(req, res) {
@@ -9,9 +10,32 @@ async function index(req, res) {
 async function show(req, res) {
   const development = await Development.findById(req.params.id);
   const developmentId = req.params.id;
-  console.log(development);
+  Development.findById(req.params.id)
+  .populate('user').exec(function(err, movie){
+    User.find(
+      {_id: {$nin: development.user}},
+      function(err, users) {
+        console.log(users)
+        res.render('development/show', { title: 'Page Details', development, users})
+      }
+    )
+  })
   res.render("developments/show", { developmentId, development, user: req.user });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function edit(req, res) {
   Development.findById(req.params.id, function (err, development) {

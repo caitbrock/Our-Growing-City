@@ -1,6 +1,4 @@
-
 const Development = require('../models/development');
-const User = require('../models/user');
 const passport = require("../config/passport");
 
 function index(req, res, next) {
@@ -27,10 +25,7 @@ function index(req, res, next) {
 }
 
 function create(req, res) {
-  console.log("create reached");
   Development.findById(req.params.id, function (err, development) {
-    console.log("the dev.", development);
-    console.log(req.body);
     development.review.push(req.body)
     development.save(function (err) {
       if (err) console.log(err)
@@ -43,8 +38,6 @@ function delReview(req, res) {
   Development.findById(req.params.id, function (err, development) {
     const id = req.params.rid
     if (err) console.log(err)
-    console.log(development);
-    console.log(req.params);
     const idx = development.review.findIndex((r) => r._id == req.params.rid);
     if (idx === -1) {return false;} else {development.review.splice(idx, 1);
     };

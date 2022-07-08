@@ -1,4 +1,5 @@
 const Neighbourhood = require("../models/neighbourhood")
+const passport = require("passport");
 
 async function index(req, res) {
   const neighbourhoodData = await Neighbourhood.find();
