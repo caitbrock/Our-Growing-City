@@ -68,13 +68,24 @@ table thead th {
   width: 50vw;
   padding: 5px;
   border-bottom: 2px solid #424748;
-  /* text-align: center; */
 }
+
+tr > td:last-of-type{
+  width: 15%;
+}
+
+
+td+td {
+  width: 85%;;
+}
+
+
 
 table tbody {
   border-top: 2px solid #424748;
-  /* text-align: center; */
+  align-items: space-between;
 }
+
 .city-container {
 display: flex;
 flex-direction: column;
@@ -98,12 +109,16 @@ align-items: center;
 
 table {
   width: 40%;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   align-items: space-between;
 }
 
 tr:nth-child(even) {
 background-color: #f5f5f5;
+}
+
+#neighbourhoodtable > thead:nth-child(2) {
+  width: 20%;
 }
 
 .development-details {
@@ -122,13 +137,3 @@ background-color: #f5f5f5;
   justify-content: center;
   align-items: center;
 }
-
-.btn waves-effect waves-light{
-  background-color: rgb(223, 226, 23);
-}
-
-.form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-} 

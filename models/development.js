@@ -10,6 +10,10 @@ var userSchema = new Schema({
 
 const reviewSchema = new Schema({
   content: String,
+  img: {
+    data: Buffer,
+    contentType: String
+}, 
   user: [userSchema],
  },
  {
