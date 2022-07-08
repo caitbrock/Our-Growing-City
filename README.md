@@ -6,15 +6,22 @@ The app allows a user to select a neighbourhood and view the active applications
 
 TECHNOLOGIES USED
 
-- QGIS
 - Node.js
 - Express.js
 - MongoDB
+- HTML
+- CSS
+- QGIS
+
+GETTING STARTED:
+
+Explore your neighbourhood at: 
 
 NEXT STEPS
 Moving forward it would be great to:
 
-1. Add more functionality to the development application pages.
-2. Create an alert on the neighbourhood page to advise of the next upcoming meetings.
-3. Add more data related to the other neighbourhoods.
-4. Play more with the visuals for the maps.
+1. Add more functionality to the development application pages (adding an image, ensuring only the admin user has access etc.).
+2. Add a like button and/or the ability to interact more with posts.
+3. Create an alert on the neighbourhood page to advise of the upcoming meetings and important dates.
+4. Add more data related to the other neighbourhoods in the City.
+5. Play more with the visuals for the maps, adding pins and polygons where appropriate.

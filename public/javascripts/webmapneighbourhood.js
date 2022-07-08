@@ -14177,10 +14177,10 @@
         radius: 3
     }).addTo(map);
 
-    development_one.bindPopup("<b>44 Broadway Ave</b>" + 
-        '<a href = "https://www.google.com">Details</a><br>'
+    development_one.bindPopup("<b>44 Broadway Ave</b><br>" + 
+        '<a href = "https://www.google.com">Details</a>'
     )
-    
+
     // Adds the basemap tiles to your web map
     // Additional providers are available at: https://leaflet-extras.github.io/leaflet-providers/preview/
     var Stamen_TonerBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
