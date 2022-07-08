@@ -7,24 +7,6 @@ async function index(req, res) {
   res.render("developments", { developmentData, user: req.user });
 }
 
-function create(req, res) {
-  const Development = newDevelopment(req.body);
-  Development.user = req.user._id;
-  Development.save(function (err) {
-    if (err) {
-      console.log(err);
-      return render(
-        "<h5> Must be an admin member to add a new development applciation </h5>"
-      );
-    }
-    res.redirect("developments");
-  });
-}
-
-function newDevelopment(req, res) {
-  res.render("developments/new");
-}
-
 async function show(req, res) {
   const development = await Development.findById(req.params.id);
   const developmentId = req.params.id;
@@ -59,11 +41,30 @@ function update(req, res) {
   );
 }
 
+function create(req, res) {
+  const Development = newDevelopment(req.body);
+  Development.user = req.user._id;
+  Development.save(function (err) {
+    if (err) {
+      console.log(err);
+      return render(
+        "<h5> Must be an admin member to add a new development applciation </h5>"
+      );
+    }
+    res.redirect("developments");
+  });
+}
+
+function newDevelopment(req, res) {
+  res.render("developments/new");
+}
+
+
 module.exports = {
   index,
+  show,
   new: newDevelopment,
   create,
-  show,
   edit,
   update,
 };
