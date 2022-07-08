@@ -32,7 +32,7 @@ TECHNOLOGIES USED:
 
 GETTING STARTED:
 
-Explore your neighbourhood at: 
+Explore your neighbourhood at: https://our-growing-city.herokuapp.com/
 
 NEXT STEPS:
 
