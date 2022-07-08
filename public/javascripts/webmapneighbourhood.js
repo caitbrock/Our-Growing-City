@@ -14173,10 +14173,14 @@
     let development_one = L.circle([43.71067912946561, -79.39671749182291], {
         color: "rgb(223, 226, 23)",
         fillColor: "rgb(223, 226, 23)",
-        fillOpacity: "0.9",
+        fillOpacity: "1",
         radius: 3
     }).addTo(map);
 
+    development_one.bindPopup("<b>44 Broadway Ave</b>" + 
+        '<a href = "https://www.google.com">Details</a><br>'
+    )
+    
     // Adds the basemap tiles to your web map
     // Additional providers are available at: https://leaflet-extras.github.io/leaflet-providers/preview/
     var Stamen_TonerBackground = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
