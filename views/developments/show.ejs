@@ -7,15 +7,15 @@
 
 <div class="developments-container">
   <h1>North Toronto </h1>
-  <h5><%= result.STREET_NUM %> <%= result.STREET_NAME %> <%= result.STREET_TYPE %> </h5>
-  <%= result.APPLICATION_TYPE %> - <%= result.STATUS %></br>
-  Application Number: <%= result.APPLICATION_NUMBER %> </br></br>
+  <h5><%= development.STREET_NUM %> <%= development.STREET_NAME %> <%= development.STREET_TYPE %> </h5>
+  <%= development.APPLICATION_TYPE %> - <%= development.STATUS %></br>
+  Application Number: <%= development.APPLICATION_NUMBER %> </br></br>
 
-  <p>Date Application Submitted: <%= result.DATE_SUBMITTED %></br>
-    <% if (result.HEARING_DATE === 'null') { %>
+  <p>Date Application Submitted: <%= development.DATE_SUBMITTED %></br>
+    <% if (development.HEARING_DATE === 'null') { %>
     Date of Hearing: No date has been set at this time
     <% } else { %>
-    Date of Hearing: <%= result.HEARING_DATE %>
+    Date of Hearing: <%= development.HEARING_DATE %>
     <% }; %>
   </p>
 
@@ -24,11 +24,11 @@
     </br></br>
     <p>Project Description:
     </p>
-    <h6><%= result.DESCRIPTION %></h6></br></br></br>
+    <h6><%= development.DESCRIPTION %></h6></br></br></br>
   </div>
 
   <p>Submit a Comment:</p>
-  <form id="add-review-form" method="POST" action="/developments/<%= result._id %>/reviews">
+  <form id="add-review-form" method="POST" action="/developments/<%= development._id %>/reviews">
     <textarea placeholder="Enter comment here" name="content"></textarea>
     </br></br>
     <input type="submit" value="SUBMIT" />
@@ -38,7 +38,7 @@
 
   <p>Community Feedback:
   </p>
-  <% if (result.review.length) { %>
+  <% if (development.review.length) { %>
   <table>
     <thead>
       <tr>
@@ -48,13 +48,14 @@
       </tr>
     </thead>
     <tbody>
-      <% result.review.forEach(function(r) { %>
+      <% development.review.forEach(function(r) { %>
       <tr>
-
+        <td><%= r.user %></td>
         <td><%= r.content %></td>
+        <td><%= r._id %></td>
         <td><%= r.createdAt.toLocaleDateString() %></td>
         <td>
-          <form action="/developments/<%= result._id %>/reviews/<%= r._rid %>?_method=delete" method="POST">
+          <form action="/developments/<%= development._id %>/reviews/<%= r._id %>?_method=delete" method="POST">
             <button>X</button>
 
           </form>
@@ -63,7 +64,7 @@
       <% }); %>
     </tbody>
   </table>
-  <%= result.review.content %>
+  <%= development.review.content %>
   <% } else { %>
   <p>No Comments Yet</p>
   <% }; %>

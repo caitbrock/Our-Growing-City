@@ -14,6 +14,7 @@ passport.use(
       try {
         const user = await User.findOne({ googleId: profile.id });
         console.log("user lookup: ", user);
+        console.log(user.email);
         if (user) {
           return cb(null, user);
         } else {

@@ -1,6 +1,7 @@
 const Review = require("../models/review"); 
 const Development = require('../models/development');
 const User = require('../models/user');
+const Userlog = require('../config/passport');
 
 function index(req, res, next) {
   console.log(req.query);
@@ -13,7 +14,7 @@ function index(req, res, next) {
   let sortKey = req.query.sort || "name";
   User.find(modelQuery)
     .sort(sortKey)
-    .exec(function (err, students) {
+    .exec(function (err, user) {
       if (err) return next(err);
       // Passing search values, name & sortKey, for use in the EJS
       res.render(`/developments/${development._id}`, {
@@ -39,14 +40,14 @@ function create(req, res) {
 }
 
 function delReview(req, res) {
-  console.log(req.params)
   Development.findById(req.params.did, function (err, development) {
     const did = req.params.did
     if (err) console.log(err)
     const idx = development.review.findIndex((r) => r.rid == req.params.rid);
-    console.log(req.params.rid)
-    if (idx === -1) {return false;} else {development.review.splice(idx, 1);}
+    if (idx === -1) {return false;} else {development.review.splice(idx, 1);
+    };
     development.save(function (err) {
+      if (err) console.log(err)
   res.redirect(`${development._id}/reviews/${review._id}`);
 });
 });

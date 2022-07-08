@@ -1,6 +1,6 @@
 const Development = require("../models/development");
 const Review = require("../models/review");
-
+const passport = require("../config/passport");
 
 async function index(req, res) {
   const developmentData = await Development.find();
@@ -26,8 +26,9 @@ function newDevelopment(req, res) {
 }
 
 async function show(req, res) {
-  const result = await Development.findById(req.params.id);
-  res.render("developments/show", { result, user: req.user });
+  const development = await Development.findById(req.params.id);
+  const developmentId = req.params.id;
+  res.render("developments/show", { developmentId, development, user: req.user });
 }
 
 function edit(req, res) {
