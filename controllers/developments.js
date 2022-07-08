@@ -59,7 +59,6 @@ function newDevelopment(req, res) {
   res.render("developments/new");
 }
 
-
 module.exports = {
   index,
   show,
