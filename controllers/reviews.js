@@ -23,6 +23,18 @@ function index(req, res, next) {
 }
 
 function create(req, res) {
+  Development.findById(req.params.id, function (err, development) {
+    req.body.user = req.user._id
+    development.review.push(req.body)
+    console.log(development)
+    development.save(function (err) {
+      if (err) console.log(err)
+  res.redirect(`/developments/${development._id}`);
+});
+});
+}
+
+function create(req, res) {
   console.log("create reached");
   Development.findById(req.params.id, function (err, development) {
     console.log("the dev.", development);
@@ -40,6 +52,8 @@ function delReview(req, res) {
     const id = req.params.rid
     if (err) console.log(err)
     const idx = development.review.findIndex((r) => r._id == req.params.rid);
+    console.log(development);
+    console.log(req.params);
     if (idx === -1) {return false;} else {development.review.splice(idx, 1);
     };
     development.save(function (err) {

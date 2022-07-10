@@ -1,25 +1,58 @@
-<%- include('../partials/header') %>
-</br></br>
-<div id="clickable">
-  <a href="../neighbourhoods">Back to my Neighbourhood</a>
-</div>
+<!DOCTYPE html>
+<html>
 
-<div class="edit-container">
-  <h1>North Toronto </h1>
-  <form action="/developments" method="POST">
-    <label>Application Type:
-      <select name="APPLICATION_TYPE">
-        <option value=" " selected>Select One</option>
-        <option value="Plan of Condominium">CD</option>
-        <option value="Official Plan Amendment">OZ</option>
-        <option value="Part Lot Control Exemption">PL</option>
-        <option value="Plan of Subdivision">SB</option>
-        <option value="Site Plan Control">SA</option>
-        <option value="Zoning By-law Amendment">OZ</option>
-      </select>
-    </label> -
-    <form action="/developments" method="POST">
-      <label>Status:
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Growing City</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap");
+  </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+  <link rel="stylesheet" href="stylesheets/leaflet.css">
+
+</head>
+
+<body>
+  <nav>
+    <a href="/">Our Growing City</a>
+    <ul class="right">
+      <li>
+        <% if (user) { %>
+        <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+        <% } else { %>
+        <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+        <% } %>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    </br></br>
+    <div id="clickable">
+      <a href="../neighbourhoods">Back to my Neighbourhood</a>
+    </div>
+
+    <div class="edit-container">
+      <h1>North Toronto </h1>
+      <form action="/developments" method="POST">
+        <label>Application Type:</label>
+        <select name="APPLICATION_TYPE">
+          <option value=" " selected>Select One</option>
+          <option value="Plan of Condominium">CD</option>
+          <option value="Official Plan Amendment">OZ</option>
+          <option value="Part Lot Control Exemption">PL</option>
+          <option value="Plan of Subdivision">SB</option>
+          <option value="Site Plan Control">SA</option>
+          <option value="Zoning By-law Amendment">OZ</option>
+        </select>
+        </br></br>
+        <label>Status:</label>
         <select name="STATUS">
           <option value=" " selected>Select One</option>
           <option value="Notice Prepared (CO)">Notice Prepared (CO)</option>
@@ -44,31 +77,8 @@
           <option value="Revised Decision Issued">Revised Decision Issued</option>
           <option value="Review of Decision Requested">Review of Decision Requested</option>
         </select>
-      </label>
-      </br>
-      Application Number: <%= development.APPLICATION_NUMBER %> </br></br>
 
-      <p>Date Application Submitted: <%= development.DATE_SUBMITTED %></br>
-        <% if (development.HEARING_DATE === 'null') { %>
-        Date of Hearing: No date has been set at this time
-        <% } else { %>
-        Date of Hearing: <%= development.HEARING_DATE %>
-        <% }; %>
-      </p>
-
-      <div class="image" style="height: 30vh;"><i class="medium material-icons center">insert_photo</i></br>No images have been added yet</div>
-      <div class="development-details">
-        </br></br>
-        <p>Project Description:
-        </p>
-        <h6><%= development.DESCRIPTION %></h6></br></br></br>
-      </div>
-
-      <p>Submit a Comment:</p>
-      <form id="add-review-form" method="POST" action="/developments/<%= development._id %>/reviews">
-        <textarea placeholder="Enter comment here" name="content"></textarea>
-        </br></br>
-        <input type="submit" value="SUBMIT" />
+        </br>
       </form>
-      </br></br></br>
-      <%- include('./partials/footer') %>
+    </div>
+    <%- include('../partials/footer') %>

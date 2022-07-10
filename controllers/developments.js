@@ -46,23 +46,18 @@ function update(req, res) {
   );
 }
 
-function create(req, res) {
-  const Development = newDevelopment(req.body);
-  Development.user = req.user._id;
-  Development.save(function (err) {
-    if (err) {
-      console.log(err);
-      return render(
-        "<h5> Must be an admin member to add a new development applciation </h5>"
-      );
-    }
-    res.redirect("developments") , { user: req.user };
-  });
+function newDevelopment(req, res) {
+  res.render("developments/new", { user: req.user });
 }
 
-function newDevelopment(req, res) {
-  res.render("developments/new");
-}
+function create(req, res) {
+  Development.findById(req.params.id, function (err, development) {
+  development.save(function (err) {
+    if (err) return res.render("flights/new");
+    res.redirect(`/developments/${flight._id}`);
+  });
+});
+};
 
 module.exports = {
   index,
