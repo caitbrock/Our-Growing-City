@@ -18,13 +18,6 @@ async function show(req, res) {
 
 
 
-
-
-
-
-
-
-
 function edit(req, res) {
   Development.findById(req.params.id, function (err, development) {
     if (err) {
@@ -63,7 +56,7 @@ function create(req, res) {
         "<h5> Must be an admin member to add a new development applciation </h5>"
       );
     }
-    res.redirect("developments");
+    res.redirect("developments") , { user: req.user };
   });
 }
 

@@ -4,8 +4,6 @@ const passport = require("../config/passport");
 
 function index(req, res, next) {
   console.log(req.query);
-  // Make the query object to use with user.find based up
-  // the user has submitted the search form or now
   let modelQuery = req.query.name
     ? { name: new RegExp(req.query.name, "i") }
     : {};
@@ -16,20 +14,20 @@ function index(req, res, next) {
     .exec(function (err, user) {
       if (err) return next(err);
       // Passing search values, name & sortKey, for use in the EJS
-      res.render(`/developments/${development._id}`, {
+      res.render("developments/show", {
         user,
         name: req.query.name,
-        sortKey,
         user: req.user,
       });
     });
 }
 
 function create(req, res) {
+  console.log("create reached");
   Development.findById(req.params.id, function (err, development) {
-    req.body.user = req.user._id
+    console.log("the dev.", development);
+    console.log(req.body);
     development.review.push(req.body)
-    console.log(development)
     development.save(function (err) {
       if (err) console.log(err)
   res.redirect(`/developments/${development._id}`);
