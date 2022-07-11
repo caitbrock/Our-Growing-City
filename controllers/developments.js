@@ -20,7 +20,7 @@ function edit(req, res) {
     if (err) {
       res.redirect("/developments");
     }
-    res.render("developments/edit", {
+    res.render("/developments/edit", {
       title: "Edit Development Application",
       development,
     });
@@ -48,11 +48,11 @@ function newDevelopment(req, res) {
 }
 
 function create(req, res) {
-  Development.findById(req.params.id, function (err, development) {
-  development.push(req.body);
+  req.body.APPLICATION_NUMBER = parseInt(req.body.APPLICATION_NUMBER);
+  const development = new Development(req.body);
   development.save(function (err) {
-      res.redirect("/developments");
-    });
+    if (err) return res.render("developments/new", { user: req.user });
+    res.redirect("neighbourhoods");
   });
 }
 

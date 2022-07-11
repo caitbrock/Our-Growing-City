@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-  content: String,
-  image: {
-    data: Buffer,
-    contentType: String}, 
   user: {type: Schema.Types.ObjectId, ref: 'User'},
+  img: {
+    data: Buffer,
+    contentType: String},
+  content: String,
  },
  {
     timestamps: true,
