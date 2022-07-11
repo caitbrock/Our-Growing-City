@@ -49,12 +49,12 @@ function newDevelopment(req, res) {
 
 function create(req, res) {
   Development.findById(req.params.id, function (err, development) {
+  development.push(req.body);
   development.save(function (err) {
-    if (err) return res.render("flights/new");
-    res.redirect(`/developments/${flight._id}`);
+      res.redirect("/developments");
+    });
   });
-});
-};
+}
 
 module.exports = {
   index,

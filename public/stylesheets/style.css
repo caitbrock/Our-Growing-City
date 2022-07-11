@@ -124,7 +124,7 @@ background-color: #f5f5f5;
 }
 
 #add-review-form {
-  width: 60vw;
+  width: 100vw;
 }
 
 .image {
@@ -157,3 +157,4 @@ textarea {
   border-radius:10px;
   border: 1px solid #f2f2f2;
 }
+
