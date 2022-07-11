@@ -5,73 +5,67 @@
   <a href="./show">Submit Updates</a>
 </div>
 
-<div class="developments-container">
+<div class="details-container">
   <h1>North Toronto </h1>
   <h5><%= development.STREET_NUM %> <%= development.STREET_NAME %> <%= development.STREET_TYPE %> </h5>
+  Application Number: <%= development.APPLICATION_NUMBER %> </br></br>
 
-  <form action="/developments" method="POST">
-    <label>Application Type:
-      <select name="APPLICATION_TYPE">
-        <option value=" " selected>Select One</option>
-        <option value="Plan of Condominium">CD</option>
-        <option value="Official Plan Amendment">OZ</option>
-        <option value="Part Lot Control Exemption">PL</option>
-        <option value="Plan of Subdivision">SB</option>
-        <option value="Site Plan Control">SA</option>
-        <option value="Zoning By-law Amendment">OZ</option>
-      </select>
-    </label> -
-    <form action="/developments" method="POST">
-      <label>Status:
-        <select name="STATUS">
-          <option value=" " selected>Select One</option>
-          <option value="Notice Prepared (CO)">Notice Prepared (CO)</option>
-          <option value="Approved">Approved</option>
-          <option value="Refused">Refused</option>
-          <option value="Deferred">Deferred</option>
-          <option value="Prepared Notice">Prepared Notice</option>
-          <option value="Hearing Scheduled (COA)">Hearing Scheduled (COA)</option>
-          <option value="Approved with Conditions">Approved with Conditions</option>
-          <option value="OMB Appeal">OMB Appeal</option>
-          <option value="Notice Prepared (MV)">Notice Prepared (MV)</option>
-          <option value="TLAB Appeal">TLAB Appeal</option>
-          <option value="Appeal Received by C of A">Appeal Received by C of A</option>
-          <option value="Appeal Received by TLAB">Appeal Received by TLAB</option>
-          <option value="Hearing Scheduled (TLAB)">Hearing Scheduled (TLAB)</option>
-          <option value="New Hearing Date">New Hearing Date</option>
-          <option value="Prehearing Scheduled">Prehearing Scheduled</option>
-          <option value="Appeal Decision Pending">Appeal Decision Pending</option>
-          <option value="Appeal Dismissed">Appeal Dismissed</option>
-          <option value="Decision Issued">Decision Issued</option>
-          <option value="Decision Issued">Decision Issued</option>
-          <option value="Revised Decision Issued">Revised Decision Issued</option>
-          <option value="Review of Decision Requested">Review of Decision Requested</option>
-        </select>
-      </label>
-      </br>
-      Application Number: <%= development.APPLICATION_NUMBER %> </br></br>
+  <form action="/developments/<%= development._id %>/edit" method="POST">
+    <label>Application Type:</label>
+    <select name="APPLICATION_TYPE">
+      <option value=" " selected>Select One</option>
+      <option value="Plan of Condominium">CD</option>
+      <option value="Official Plan Amendment">OZ</option>
+      <option value="Part Lot Control Exemption">PL</option>
+      <option value="Plan of Subdivision">SB</option>
+      <option value="Site Plan Control">SA</option>
+      <option value="Zoning By-law Amendment">OZ</option>
+    </select>
+    </br></br>
 
-      <p>Date Application Submitted: <%= development.DATE_SUBMITTED %></br>
-        <% if (development.HEARING_DATE === 'null') { %>
-        Date of Hearing: No date has been set at this time
-        <% } else { %>
-        Date of Hearing: <%= development.HEARING_DATE %>
-        <% }; %>
-      </p>
+    <label>Description:</label>
+    <textarea placeholder="Enter comment here" name="DESCRIPTION"></textarea>
+    </br></br>
 
-      <div class="image" style="height: 30vh;"><i class="medium material-icons center">insert_photo</i></br>No images have been added yet</div>
-      <div class="development-details">
-        </br></br>
-        <p>Project Description:
-        </p>
-        <h6><%= development.DESCRIPTION %></h6></br></br></br>
-      </div>
+    <label>Status:</label>
+    <select name="STATUS">
+      <option value=" " selected>Select One</option>
+      <option value="Notice Prepared (CO)">Notice Prepared (CO)</option>
+      <option value="Approved">Approved</option>
+      <option value="Refused">Refused</option>
+      <option value="Deferred">Deferred</option>
+      <option value="Prepared Notice">Prepared Notice</option>
+      <option value="Hearing Scheduled (COA)">Hearing Scheduled (COA)</option>
+      <option value="Approved with Conditions">Approved with Conditions</option>
+      <option value="OMB Appeal">OMB Appeal</option>
+      <option value="Notice Prepared (MV)">Notice Prepared (MV)</option>
+      <option value="TLAB Appeal">TLAB Appeal</option>
+      <option value="Appeal Received by C of A">Appeal Received by C of A</option>
+      <option value="Appeal Received by TLAB">Appeal Received by TLAB</option>
+      <option value="Hearing Scheduled (TLAB)">Hearing Scheduled (TLAB)</option>
+      <option value="New Hearing Date">New Hearing Date</option>
+      <option value="Prehearing Scheduled">Prehearing Scheduled</option>
+      <option value="Appeal Decision Pending">Appeal Decision Pending</option>
+      <option value="Appeal Dismissed">Appeal Dismissed</option>
+      <option value="Decision Issued">Decision Issued</option>
+      <option value="Decision Issued">Decision Issued</option>
+      <option value="Revised Decision Issued">Revised Decision Issued</option>
+      <option value="Review of Decision Requested">Review of Decision Requested</option>
+    </select>
+    </br></br>
 
-      <p>Submit a Comment:</p>
-      <form id="add-review-form" method="POST" action="/developments/<%= development._id %>/reviews">
-        <textarea placeholder="Enter comment here" name="content"></textarea>
-        </br></br>
-        <input type="submit" value="SUBMIT" />
-      </form>
-      </br></br></br>
-      <%- include('./partials/footer') %>
+    <label>Hearing Date:</label>
+    <input type="date" class="date" name="HEARING_DATE" style="width:35%"></textarea>
+    </br></br>
+
+    <label>Date Application Submitted:</label>
+    <input type="date" class="date" name="HEARING_DATE" style="width:35%"></textarea>
+    </br></br>
+
+    <button class="btn waves-effect waves-light black" type="submit" name="action">Submit
+      <i class="material-icons right">add</i>
+  </form>
+</div>
+</br></br></br></br>
+
+<%- include('../partials/footer') %>
