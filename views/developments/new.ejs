@@ -1,84 +1,91 @@
-<!DOCTYPE html>
-<html>
+<%- include('../partials/header') %>
+</br></br>
+<div id="clickable">
+  <a href="../neighbourhoods">Back to my Neighbourhood</a>
+</div>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Growing City</title>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap");
-  </style>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Materialize CSS Framework -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+<div class="edit-container">
+  <h1>Submit New Application</h1>
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-  <link rel="stylesheet" href="stylesheets/leaflet.css">
-
-</head>
-
-<body>
-  <nav>
-    <a href="/">Our Growing City</a>
-    <ul class="right">
-      <li>
-        <% if (user) { %>
-        <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-        <% } else { %>
-        <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-        <% } %>
-      </li>
-    </ul>
-  </nav>
-  <main>
+  <form action="/developments" method="POST">
+    <label>Street Name:</label>
+    <textarea placeholder="e.g.: YONGE" name="STREET_NAME"></textarea>
     </br></br>
-    <div id="clickable">
-      <a href="../neighbourhoods">Back to my Neighbourhood</a>
-    </div>
 
-    <div class="edit-container">
-      <h1>North Toronto </h1>
-      <form action="/developments" method="POST">
-        <label>Application Type:</label>
-        <select name="APPLICATION_TYPE">
-          <option value=" " selected>Select One</option>
-          <option value="Plan of Condominium">CD</option>
-          <option value="Official Plan Amendment">OZ</option>
-          <option value="Part Lot Control Exemption">PL</option>
-          <option value="Plan of Subdivision">SB</option>
-          <option value="Site Plan Control">SA</option>
-          <option value="Zoning By-law Amendment">OZ</option>
-        </select>
-        </br></br>
-        <label>Status:</label>
-        <select name="STATUS">
-          <option value=" " selected>Select One</option>
-          <option value="Notice Prepared (CO)">Notice Prepared (CO)</option>
-          <option value="Approved">Approved</option>
-          <option value="Refused">Refused</option>
-          <option value="Deferred">Deferred</option>
-          <option value="Prepared Notice">Prepared Notice</option>
-          <option value="Hearing Scheduled (COA)">Hearing Scheduled (COA)</option>
-          <option value="Approved with Conditions">Approved with Conditions</option>
-          <option value="OMB Appeal">OMB Appeal</option>
-          <option value="Notice Prepared (MV)">Notice Prepared (MV)</option>
-          <option value="TLAB Appeal">TLAB Appeal</option>
-          <option value="Appeal Received by C of A">Appeal Received by C of A</option>
-          <option value="Appeal Received by TLAB">Appeal Received by TLAB</option>
-          <option value="Hearing Scheduled (TLAB)">Hearing Scheduled (TLAB)</option>
-          <option value="New Hearing Date">New Hearing Date</option>
-          <option value="Prehearing Scheduled">Prehearing Scheduled</option>
-          <option value="Appeal Decision Pending">Appeal Decision Pending</option>
-          <option value="Appeal Dismissed">Appeal Dismissed</option>
-          <option value="Decision Issued">Decision Issued</option>
-          <option value="Decision Issued">Decision Issued</option>
-          <option value="Revised Decision Issued">Revised Decision Issued</option>
-          <option value="Review of Decision Requested">Review of Decision Requested</option>
-        </select>
+    <label>Street Number:</label>
+    <textarea placeholder="e.g.: 204" name="STREET_NUM"></textarea>
+    </br></br>
 
-        </br>
-      </form>
-    </div>
-    <%- include('../partials/footer') %>
+    <label>Street Type:</label>
+    <select name="STREET_TYPLE">
+      <option value=" " selected>Select One</option>
+      <option value="ST">Street</option>
+      <option value="AVE">Avenue</option>
+      <option value="RD">Road</option>
+      <option value="CRES">Crescent</option>
+      <option value="LN">Lane</option>
+      <option value="DR">Drive</option>
+    </select>
+    </br></br>
+
+    <label>Application Type:</label>
+    <select name="APPLICATION_TYPE">
+      <option value=" " selected>Select One</option>
+      <option value="Plan of Condominium">CD</option>
+      <option value="Official Plan Amendment">OZ</option>
+      <option value="Part Lot Control Exemption">PL</option>
+      <option value="Plan of Subdivision">SB</option>
+      <option value="Site Plan Control">SA</option>
+      <option value="Zoning By-law Amendment">OZ</option>
+    </select>
+    </br></br>
+
+    <label>Application Number:</label>
+    <textarea placeholder="e.g.: 21 213552 STE 12 SB" name="APPLICATION_NUMBER"></textarea>
+    </br></br>
+
+    <label>Description:</label>
+    <textarea placeholder="Enter comment here" name="DESCRIPTION"></textarea>
+    </br></br>
+
+    <label>Status:</label>
+    <select name="STATUS">
+      <option value=" " selected>Select One</option>
+      <option value="Notice Prepared (CO)">Notice Prepared (CO)</option>
+      <option value="Approved">Approved</option>
+      <option value="Refused">Refused</option>
+      <option value="Deferred">Deferred</option>
+      <option value="Prepared Notice">Prepared Notice</option>
+      <option value="Hearing Scheduled (COA)">Hearing Scheduled (COA)</option>
+      <option value="Approved with Conditions">Approved with Conditions</option>
+      <option value="OMB Appeal">OMB Appeal</option>
+      <option value="Notice Prepared (MV)">Notice Prepared (MV)</option>
+      <option value="TLAB Appeal">TLAB Appeal</option>
+      <option value="Appeal Received by C of A">Appeal Received by C of A</option>
+      <option value="Appeal Received by TLAB">Appeal Received by TLAB</option>
+      <option value="Hearing Scheduled (TLAB)">Hearing Scheduled (TLAB)</option>
+      <option value="New Hearing Date">New Hearing Date</option>
+      <option value="Prehearing Scheduled">Prehearing Scheduled</option>
+      <option value="Appeal Decision Pending">Appeal Decision Pending</option>
+      <option value="Appeal Dismissed">Appeal Dismissed</option>
+      <option value="Decision Issued">Decision Issued</option>
+      <option value="Decision Issued">Decision Issued</option>
+      <option value="Revised Decision Issued">Revised Decision Issued</option>
+      <option value="Review of Decision Requested">Review of Decision Requested</option>
+    </select>
+    </br></br>
+
+    <label>Hearing Date:</label>
+    <input type="date" class="date" name="HEARING_DATE" style="width:35%"></textarea>
+    </br></br>
+
+    <label>Date Application Submitted:</label>
+    <input type="date" class="date" name="HEARING_DATE" style="width:35%"></textarea>
+    </br></br>
+
+    <button class="btn waves-effect waves-light black" type="submit" name="action">Submit
+      <i class="material-icons right">add</i>
+  </form>
+</div>
+</br></br></br></br>
+<%- include('../partials/footer') %>

@@ -15,9 +15,6 @@ async function show(req, res) {
 }
 
 
-
-
-
 function edit(req, res) {
   Development.findById(req.params.id, function (err, development) {
     if (err) {
