@@ -23,18 +23,6 @@ function index(req, res, next) {
 }
 
 function create(req, res) {
-  Development.findById(req.params.id, function (err, development) {
-    req.body.user = req.user._id
-    development.review.push(req.body)
-    console.log(development)
-    development.save(function (err) {
-      if (err) console.log(err)
-  res.redirect(`/developments/${development._id}`);
-});
-});
-}
-
-function create(req, res) {
   console.log("create reached");
   Development.findById(req.params.id, function (err, development) {
     console.log("the dev.", development);

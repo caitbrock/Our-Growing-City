@@ -14,6 +14,19 @@ async function show(req, res) {
   res.render("developments/show", { developmentId, development, user: req.user });
 }
 
+function newDevelopment(req, res) {
+  res.render("developments/new", { user: req.user });
+}
+
+function create(req, res) {
+  req.body.APPLICATION_NUMBER = parseInt(req.body.APPLICATION_NUMBER);
+  const development = new Development(req.body);
+  development.save(function (err) {
+    if (err) return res.render("developments/new", { user: req.user });
+    res.redirect("neighbourhoods");
+  });
+}
+
 
 function edit(req, res) {
   Development.findById(req.params.id, function (err, development) {
@@ -41,19 +54,6 @@ function update(req, res) {
       res.redirect("developments");
     }
   );
-}
-
-function newDevelopment(req, res) {
-  res.render("developments/new", { user: req.user });
-}
-
-function create(req, res) {
-  req.body.APPLICATION_NUMBER = parseInt(req.body.APPLICATION_NUMBER);
-  const development = new Development(req.body);
-  development.save(function (err) {
-    if (err) return res.render("developments/new", { user: req.user });
-    res.redirect("neighbourhoods");
-  });
 }
 
 module.exports = {
