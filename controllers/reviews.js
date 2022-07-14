@@ -18,6 +18,7 @@ function index(req, res, next) {
         user,
         name: req.query.name,
         user: req.user,
+        avatar: req.query.avatar
       });
     });
 }
