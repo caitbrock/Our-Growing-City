@@ -18,14 +18,15 @@ function newDevelopment(req, res) {
 }
 
 function create(req, res) {
-  req.body.APPLICATION_NUMBER = parseInt(req.body.APPLICATION_NUMBER);
-  const development = new Development(req.body);
-  development.save(function (err) {
+  console.log("create reached");
+  Development.findById(req.params.id, function (err, development) {
+    development.push(req.body)
+    development.save(function (err) {
     if (err) return res.render("developments/new", { user: req.user });
-    res.redirect("neighbourhoods");
+    res.redirect(`/neighbourhoods`);
   });
+});
 }
-
 
 function edit(req, res) {
   Development.findById(req.params.id, function (err, development) {
