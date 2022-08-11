@@ -28,6 +28,7 @@ TECHNOLOGIES USED:
 - Node.js
 - Express.js
 - MongoDB
+- Leaflet.js
 - HTML
 - CSS
 - QGIS
